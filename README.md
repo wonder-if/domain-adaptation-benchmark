@@ -8,7 +8,7 @@ This repo currently provides a downloader for the Hugging Face snapshot of `anng
 
 Features:
 
-- supports `hf-mirror.com` and official `huggingface.co`
+- supports official `huggingface.co` and `hf-mirror.com`
 - supports disabling or keeping proxy env vars
 - supports concurrent shard downloads
 - keeps a local state file so finished shards are not downloaded again
