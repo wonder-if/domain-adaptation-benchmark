@@ -16,21 +16,16 @@ Features:
 ## Usage
 
 ```bash
-cd /data/wyh/codes/domain-adaptation-benchmark
-bash scripts/download_iwildcam.sh
-```
-
-Default destination:
-
-```text
-/data/wyh/datasets/wilds/iwildcam
+git clone <your-repo-url>
+cd domain-adaptation-benchmark
+bash scripts/download_iwildcam.sh --dest /path/to/iwildcam
 ```
 
 Common example:
 
 ```bash
 bash scripts/download_iwildcam.sh \
-  --dest /data/wyh/datasets/wilds/iwildcam_tmp \
+  --dest /path/to/iwildcam \
   --source mirror \
   --proxy disable \
   --jobs 4

@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 MANIFEST="${ROOT_DIR}/manifests/iwildcam_hf_sizes.tsv"
 
-DEST="/data/wyh/datasets/wilds/iwildcam"
+DEST=""
 SOURCE="mirror"
 PROXY_MODE="disable"
 RETRY=50
@@ -205,7 +205,7 @@ Usage:
   bash scripts/download_iwildcam.sh [options]
 
 Options:
-  --dest PATH             Target directory. Default: /data/wyh/datasets/wilds/iwildcam
+  --dest PATH             Target directory. Required.
   --source mirror|hf      Download source. "mirror" = hf-mirror.com, "hf" = huggingface.co
   --proxy keep|disable    Keep current proxy env or disable all proxy env vars
   --jobs N                Concurrent shard downloads. Default: 4
@@ -214,9 +214,9 @@ Options:
   -h, --help              Show this help message
 
 Examples:
-  bash scripts/download_iwildcam.sh
-  bash scripts/download_iwildcam.sh --jobs 6 --source mirror --proxy disable
-  bash scripts/download_iwildcam.sh --dest /data/wyh/datasets/wilds/iwildcam --source hf --proxy keep
+  bash scripts/download_iwildcam.sh --dest /path/to/iwildcam
+  bash scripts/download_iwildcam.sh --dest /path/to/iwildcam --jobs 6 --source mirror --proxy disable
+  bash scripts/download_iwildcam.sh --dest /path/to/iwildcam --source hf --proxy keep
 EOF
 }
 
@@ -257,6 +257,12 @@ while [[ $# -gt 0 ]]; do
       ;;
   esac
 done
+
+if [[ -z "${DEST}" ]]; then
+  echo "Missing required argument: --dest PATH" >&2
+  usage >&2
+  exit 1
+fi
 
 case "${SOURCE}" in
   mirror)
