@@ -42,6 +42,8 @@ image_path
 
 加载函数只读取本地数据。训练前应显式使用 `download_dataset` 或命令行准备数据：
 
+对于 Hugging Face 来源的数据集，`source="mirror"` 会通过 `HF_ENDPOINT` 使用 `https://hf-mirror.com`，`source="hf"` 则使用官方 `https://huggingface.co`。默认使用 `mirror`。
+
 ```python
 from dabench.datasets import download_dataset
 

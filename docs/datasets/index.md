@@ -42,6 +42,8 @@ Some datasets expose fewer columns. For example, the prepared iWildCam dataset c
 
 Loading is local-only. Use `download_dataset` or the CLI to prepare data explicitly before training:
 
+For Hugging Face-backed datasets, `source="mirror"` uses `https://hf-mirror.com` through the `HF_ENDPOINT` environment variable, while `source="hf"` uses the official `https://huggingface.co` endpoint. The default is `mirror`.
+
 ```python
 from dabench.datasets import download_dataset
 
