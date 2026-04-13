@@ -154,6 +154,11 @@ venv.bak/
 # mkdocs documentation
 /site
 
+# Local development artifacts
+/config/dev_paths.json
+/reports/
+/tmp/
+
 # mypy
 .mypy_cache/
 .dmypy.json

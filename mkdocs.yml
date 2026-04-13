@@ -1,0 +1,21 @@
+site_name: dabench
+site_description: Lightweight dataset utilities for domain adaptation research.
+theme:
+  name: material
+  language: en
+extra:
+  alternate:
+    - name: English
+      link: /
+      lang: en
+    - name: 简体中文
+      link: /zh/
+      lang: zh
+nav:
+  - Home: index.md
+  - Datasets:
+      - Overview: datasets/index.md
+  - 中文:
+      - 首页: zh/index.md
+      - 数据集:
+          - 概览: zh/datasets/index.md

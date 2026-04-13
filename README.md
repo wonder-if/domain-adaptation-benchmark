@@ -1,55 +1,55 @@
 # Domain Adaptation Benchmark
 
-Small utilities for downloading dataset snapshots used in domain adaptation and OOD experiments.
+`dabench` is a small, installable benchmark-side package for domain adaptation research.
 
-## iWildCam
+Developer-facing usage documentation lives under `docs/`. The current docs focus on dataset loading and are structured so they can be served with MkDocs later.
 
-This repo currently provides a downloader for the Hugging Face snapshot of `anngrosha/iWildCam2020`.
+Right now it focuses on dataset download/loading utilities and the surrounding workflow:
 
-Features:
-
-- supports official `huggingface.co` and `hf-mirror.com`
-- supports disabling or keeping proxy env vars
-- supports concurrent shard downloads
-- keeps a local state file so finished shards are not downloaded again
+- explicit dataset downloads
+- local artifact inspection
+- loading prepared datasets through `datasets`
+- a package layout that is ready for `pip install -e .`
 
 ## Usage
 
 ```bash
 git clone <your-repo-url>
 cd domain-adaptation-benchmark
-bash scripts/download_iwildcam.sh --dest /path/to/iwildcam
+pip install -e .
 ```
 
-Common example:
+Download a dataset explicitly when needed:
 
 ```bash
-bash scripts/download_iwildcam.sh \
-  --dest /path/to/iwildcam \
-  --source mirror \
-  --proxy disable \
-  --jobs 4
+dabench download office-31 --dest /path/to/office31 --proxy disable
 ```
 
-## Parameters
+Inspect local artifacts:
 
-```text
---dest PATH
---source mirror|hf
---proxy keep|disable
---jobs N
---retry N
---retry-delay N
+```bash
+dabench inspect office-31 --path /path/to/office31
 ```
 
-Help:
+The iWildCam shell wrapper is still available:
 
 ```bash
 bash scripts/download_iwildcam.sh --help
 ```
 
-## Notes
+## Python
 
-- the target directory keeps a state file named `.iwildcam_downloaded.tsv`
-- this is the Hugging Face snapshot layout, not the original WILDS packaged layout
-- if you need `wilds.get_dataset("iwildcam", ...)`, an extra conversion step is still needed
+```python
+from dabench.datasets import inspect_dataset, load_hf_dataset
+
+info = inspect_dataset("office-31", path="/path/to/office31")
+ds = load_hf_dataset("office-31", path="/path/to/office31", domains=["A"])
+```
+
+See `docs/` for dataset loading details.
+
+If you want the loading helpers, install with:
+
+```bash
+pip install -e .[data]
+```

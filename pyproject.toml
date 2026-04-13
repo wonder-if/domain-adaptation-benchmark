@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dabench"
+version = "0.1.0"
+description = "Benchmark-side utilities for domain adaptation datasets and evaluation."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  {name = "wonder-if"}
+]
+dependencies = []
+
+[project.optional-dependencies]
+data = [
+  "datasets>=2.18",
+  "modelscope>=1.19",
+  "requests>=2.31",
+]
+dev = [
+  "datasets>=2.18",
+  "modelscope>=1.19",
+  "requests>=2.31",
+]
+
+[project.scripts]
+dabench = "dabench.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
