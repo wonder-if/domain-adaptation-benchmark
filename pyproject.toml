@@ -19,9 +19,15 @@ data = [
   "modelscope>=1.19",
   "requests>=2.31",
 ]
+docs = [
+  "mkdocs>=1.6",
+  "mkdocs-material>=9.5",
+]
 dev = [
   "datasets>=2.18",
   "modelscope>=1.19",
+  "mkdocs>=1.6",
+  "mkdocs-material>=9.5",
   "requests>=2.31",
 ]
 

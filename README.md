@@ -7,6 +7,11 @@ that stays friendly to `datasets`, PyTorch, and `transformers`.
 The package is intentionally small. It is not a training framework, model zoo, or
 experiment manager.
 
+Documentation:
+
+- Website: <https://wonder-if.github.io/domain-adaptation-benchmark/>
+- Source: [`docs/`](docs/)
+
 ## Dataset Overview
 
 ![dabench dataset overview](docs/assets/dataset_matrix_overview.png)
@@ -119,12 +124,20 @@ bash scripts/download_iwildcam.sh --dest /path/to/iwildcam_prepared --source mir
 
 ## Documentation
 
-The user-facing docs live in [`docs/`](docs/). They are served with MkDocs and include
-Chinese / English navigation.
+The user-facing docs are a MkDocs site with Chinese / English navigation. The
+rendered site should be used for normal reading:
+
+```text
+https://wonder-if.github.io/domain-adaptation-benchmark/
+```
+
+The source files live in [`docs/`](docs/), but GitHub renders those files as plain
+Markdown pages, not as the full MkDocs website.
 
 Preview locally:
 
 ```bash
+pip install -e .[docs]
 mkdocs serve -a 0.0.0.0:10004
 ```
 
@@ -136,16 +149,8 @@ mkdocs build --strict
 
 ## GitHub Pages
 
-This repo is already structured for MkDocs Pages deployment. The simplest manual
-workflow is:
-
-```bash
-pip install mkdocs mkdocs-material
-mkdocs gh-deploy
-```
-
-`mkdocs gh-deploy` builds the docs and pushes the generated site to a `gh-pages`
-branch. In GitHub, open:
+This repo includes a GitHub Actions workflow for publishing the MkDocs site. In
+GitHub, open:
 
 ```text
 Settings -> Pages -> Build and deployment -> Source
@@ -154,16 +159,19 @@ Settings -> Pages -> Build and deployment -> Source
 Then select:
 
 ```text
-Deploy from a branch
-Branch: gh-pages
-Folder: / (root)
+GitHub Actions
 ```
 
-For this repository, the expected public URL after GitHub Pages is enabled is:
+After that, every push to `main` builds and deploys the docs. The expected public
+URL is:
 
 ```text
 https://wonder-if.github.io/domain-adaptation-benchmark/
 ```
 
-If you prefer automated deployment, add a GitHub Actions workflow later to build
-MkDocs on every push to `main`.
+If you want to deploy manually instead, use:
+
+```bash
+pip install -e .[docs]
+mkdocs gh-deploy
+```
