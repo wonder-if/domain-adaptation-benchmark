@@ -13,7 +13,7 @@
 | Office-31 | <span class="twemoji">Ⓜ️</span> [OmniData/Office-31](https://www.modelscope.cn/datasets/OmniData/Office-31) | `amazon`, `dslr`, `webcam` |
 | Camelyon17 | 🤗 [jxie/camelyon17](https://huggingface.co/datasets/jxie/camelyon17) | `id_train`, `id_val`, `unlabeled_train`, `ood_val`, `ood_test` |
 | VisDA-2017 | <span class="twemoji">🐙</span> [taskcv-2017-public](https://github.com/VisionLearningGroup/taskcv-2017-public/tree/master/classification) | `train`, `validation`, `test` |
-| iWildCam | 🤗 [anngrosha/iWildCam2020](https://huggingface.co/datasets/anngrosha/iWildCam2020) | Image loading is available; task-specific split/domain handling is not finalized |
+| iWildCam | 🤗 [anngrosha/iWildCam2020](https://huggingface.co/datasets/anngrosha/iWildCam2020) | Domains are camera traps / `location` ids; local HF metadata has 325 train locations and 91 test locations |
 
 ## Load a dataset
 
