@@ -12,7 +12,7 @@ Lightweight dataset utilities for domain adaptation benchmarks.
 ## Getting Started
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/wonder-if/domain-adaptation-benchmark.git
 cd domain-adaptation-benchmark
 pip install -e .[data]
 ```
