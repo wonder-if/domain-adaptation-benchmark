@@ -328,6 +328,7 @@ def load_visda_dataset_dict(path: str | Path, *, decode: bool = True):
         {
             class_dir.name
             for split_dir in split_dirs.values()
+            if split_dir.name != "test"
             for class_dir in split_dir.iterdir()
             if class_dir.is_dir()
         }
@@ -338,7 +339,7 @@ def load_visda_dataset_dict(path: str | Path, *, decode: bool = True):
     for split_name, split_dir in split_dirs.items():
         records = []
         class_dirs = sorted(child for child in split_dir.iterdir() if child.is_dir())
-        if class_dirs:
+        if class_dirs and split_name != "test":
             for class_dir in class_dirs:
                 label = class_to_id[class_dir.name]
                 for image_path in sorted(class_dir.rglob("*")):

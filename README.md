@@ -48,14 +48,14 @@ For Hugging Face-backed datasets, `source="mirror"` uses `https://hf-mirror.com`
 
 ## Supported Datasets
 
-| Dataset | Source | Domains / splits |
+| Dataset | Homepage | Domains / splits |
 | --- | --- | --- |
-| DomainNet | Hugging Face | `clipart`, `infograph`, `painting`, `quickdraw`, `real`, `sketch` |
-| Office-Home | Hugging Face | `Art`, `Clipart`, `Product`, `Real World` |
-| Office-31 | ModelScope | `amazon`, `dslr`, `webcam` |
-| Camelyon17 | Hugging Face | `id_train`, `id_val`, `unlabeled_train`, `ood_val`, `ood_test` |
-| VisDA-2017 | Official GitHub / URLs | `train`, `validation`, `test` |
-| iWildCam | Hugging Face | domains are camera traps / `location` ids; local HF metadata: 325 train locations, 91 test locations |
+| DomainNet | 🤗 [wltjr1007/DomainNet](https://huggingface.co/datasets/wltjr1007/DomainNet) | `clipart`, `infograph`, `painting`, `quickdraw`, `real`, `sketch` |
+| Office-Home | 🤗 [flwrlabs/office-home](https://huggingface.co/datasets/flwrlabs/office-home) | `Art`, `Clipart`, `Product`, `Real World` |
+| Office-31 | Ⓜ️ [OmniData/Office-31](https://www.modelscope.cn/datasets/OmniData/Office-31) | `amazon`, `dslr`, `webcam` |
+| Camelyon17 | 🤗 [jxie/camelyon17](https://huggingface.co/datasets/jxie/camelyon17) | `id_train`, `id_val`, `unlabeled_train`, `ood_val`, `ood_test` |
+| VisDA-2017 | 🐙 [taskcv-2017-public](https://github.com/VisionLearningGroup/taskcv-2017-public/tree/master/classification) | `train`, `validation`, `test` |
+| iWildCam | 🤗 [anngrosha/iWildCam2020](https://huggingface.co/datasets/anngrosha/iWildCam2020) | camera traps / `location` ids; 325 train, 91 test |
 
 ## Documentation
 

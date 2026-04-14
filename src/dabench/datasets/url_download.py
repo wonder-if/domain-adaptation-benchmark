@@ -53,15 +53,22 @@ def extract_tar(
 ) -> dict[str, Any]:
     archive = Path(archive_path).expanduser().resolve()
     output_dir = ensure_dir(dest)
-    if output_dir.exists() and any(output_dir.iterdir()) and not force:
-        return {
-            "archive": str(archive),
-            "dest": str(output_dir),
-            "members": None,
-            "skipped": True,
-        }
     with tarfile.open(archive, "r") as handle:
         members = handle.getmembers()
+        top_level_names = {
+            Path(member.name).parts[0]
+            for member in members
+            if member.name and Path(member.name).parts
+        }
+        if top_level_names and not force:
+            extracted_targets = [output_dir / name for name in top_level_names]
+            if all(target.exists() and (not target.is_dir() or any(target.iterdir())) for target in extracted_targets):
+                return {
+                    "archive": str(archive),
+                    "dest": str(output_dir),
+                    "members": len(members),
+                    "skipped": True,
+                }
         handle.extractall(output_dir)
     return {
         "archive": str(archive),
