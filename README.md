@@ -56,18 +56,3 @@ For Hugging Face-backed datasets, `source="mirror"` uses `https://hf-mirror.com`
 | Camelyon17 | 🤗 [jxie/camelyon17](https://huggingface.co/datasets/jxie/camelyon17) | `id_train`, `id_val`, `unlabeled_train`, `ood_val`, `ood_test` |
 | VisDA-2017 | 🐙 [taskcv-2017-public](https://github.com/VisionLearningGroup/taskcv-2017-public/tree/master/classification) | `train`, `validation`, `test` |
 | iWildCam | 🤗 [anngrosha/iWildCam2020](https://huggingface.co/datasets/anngrosha/iWildCam2020) | camera traps / `location` ids; 325 train, 91 test |
-
-## Documentation
-
-Full documentation is published as a MkDocs site:
-
-<https://wonder-if.github.io/domain-adaptation-benchmark/>
-
-Local preview:
-
-```bash
-pip install -e .[docs]
-mkdocs serve -a 0.0.0.0:10004
-```
-
-If the Pages site is not live yet, enable GitHub Pages with `Settings -> Pages -> Source -> GitHub Actions`.
