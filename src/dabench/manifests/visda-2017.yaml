@@ -1,0 +1,13 @@
+id: visda-2017
+aliases: [visda-2017, visda2017]
+storage:
+  backend: other
+  handler: visda2017
+  archives:
+    train: http://csr.bu.edu/ftp/visda17/clf/train.tar
+    validation: http://csr.bu.edu/ftp/visda17/clf/validation.tar
+    test: http://csr.bu.edu/ftp/visda17/clf/test.tar
+  image_list_url: https://raw.githubusercontent.com/VisionLearningGroup/taskcv-2017-public/master/classification/data/image_list.txt
+prepared:
+  layout: visda2017_official
+  splits: [train, validation, test]

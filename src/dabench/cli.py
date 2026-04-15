@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import argparse
 import json
-from pathlib import Path
 
-from dabench.datasets import download_dataset, inspect_dataset
+from dabench.suite import get_suite, list_suites
+from dabench.storage import download_dataset
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -65,15 +65,11 @@ def _build_parser() -> argparse.ArgumentParser:
     office31_download.add_argument("--force", action="store_true", help="Recreate clone/extract/prepared directories.")
     office31_download.add_argument("--copy-images", action="store_true", help="Copy images instead of symlinking domains.")
 
-    inspect_parser = subparsers.add_parser("inspect", help="Inspect local dataset artifacts.")
-    inspect_subparsers = inspect_parser.add_subparsers(dest="dataset", required=True)
-    domainnet_inspect = inspect_subparsers.add_parser("domainnet", help="Inspect a local DomainNet prepared directory.")
-    domainnet_inspect.add_argument("--path", required=True, help="Prepared dataset directory.")
-    iwildcam_inspect = inspect_subparsers.add_parser("iwildcam", help="Inspect a local iWildCam prepared directory.")
-    iwildcam_inspect.add_argument("--path", required=True, help="Prepared dataset directory.")
-    iwildcam_inspect.add_argument("--split", choices=["train", "test"], default=None)
-    office31_inspect = inspect_subparsers.add_parser("office-31", help="Inspect a prepared Office-31 directory.")
-    office31_inspect.add_argument("--path", required=True, help="Prepared Office-31 image directory.")
+    tasks_parser = subparsers.add_parser("tasks", help="List and inspect benchmark task suites.")
+    tasks_subparsers = tasks_parser.add_subparsers(dest="tasks_command", required=True)
+    tasks_subparsers.add_parser("list", help="List built-in benchmark suites.")
+    tasks_show = tasks_subparsers.add_parser("show", help="Show tasks in a built-in benchmark suite.")
+    tasks_show.add_argument("suite_id", help="Built-in suite id, for example office31_closed_set_uda.")
 
     return parser
 
@@ -130,29 +126,22 @@ def main() -> None:
         print(json.dumps(result, indent=2, sort_keys=True))
         return
 
-    if args.command == "inspect" and args.dataset == "domainnet":
-        info = inspect_dataset(
-            "domainnet",
-            path=Path(args.path),
-        )
-        print(json.dumps(info, indent=2, sort_keys=True))
+    if args.command == "tasks" and args.tasks_command == "list":
+        payload = [
+            {
+                "suite_id": suite.suite_id,
+                "name": suite.name,
+                "num_tasks": len(suite.tasks),
+                "metadata": dict(suite.metadata),
+            }
+            for suite in list_suites()
+        ]
+        print(json.dumps(payload, indent=2, sort_keys=True))
         return
 
-    if args.command == "inspect" and args.dataset == "iwildcam":
-        info = inspect_dataset(
-            "iwildcam",
-            path=Path(args.path),
-            split=args.split,
-        )
-        print(json.dumps(info, indent=2, sort_keys=True))
-        return
-
-    if args.command == "inspect" and args.dataset == "office-31":
-        info = inspect_dataset(
-            "office-31",
-            path=Path(args.path),
-        )
-        print(json.dumps(info, indent=2, sort_keys=True))
+    if args.command == "tasks" and args.tasks_command == "show":
+        suite = get_suite(args.suite_id)
+        print(json.dumps(suite.to_dict(), indent=2, sort_keys=True))
         return
 
     parser.error("unsupported command")

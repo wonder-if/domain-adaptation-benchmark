@@ -1,0 +1,22 @@
+{
+  "datasets": {
+    "camelyon17": {
+      "path": "/data/wyh/datasets/camelyon17_hf_prepared/jxie_camelyon17"
+    },
+    "domainnet": {
+      "path": "/data/wyh/datasets/domainnet_hf_prepared/wltjr1007_DomainNet"
+    },
+    "iwildcam": {
+      "path": "/data/wyh/datasets/iwildcam_hf_prepared/anngrosha_iWildCam2020"
+    },
+    "office-31": {
+      "path": "/data/wyh/datasets/office31_extracted"
+    },
+    "office-home": {
+      "path": "/data/wyh/datasets/office-home_hf_prepared/flwrlabs_office-home"
+    },
+    "visda-2017": {
+      "path": "/data/wyh/datasets/visda2017"
+    }
+  }
+}

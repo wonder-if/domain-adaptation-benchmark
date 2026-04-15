@@ -1,0 +1,9 @@
+id: camelyon17
+aliases: [camelyon17]
+storage:
+  backend: hf
+  dataset_name: jxie/camelyon17
+  default_source: mirror
+prepared:
+  layout: hf_prepared
+  splits: [id_train, id_val, unlabeled_train, ood_val, ood_test]

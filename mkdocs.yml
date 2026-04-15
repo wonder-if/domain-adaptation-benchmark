@@ -14,8 +14,10 @@ extra:
 nav:
   - Home: index.md
   - Datasets:
-      - Overview: datasets/index.md
+      - Overview: data/index.md
+  - Tasks: task/index.md
   - 中文:
       - 首页: zh/index.md
       - 数据集:
-          - 概览: zh/datasets/index.md
+          - 概览: zh/data/index.md
+      - 任务: zh/task/index.md

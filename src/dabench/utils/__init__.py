@@ -1,4 +1,4 @@
-"""Compatibility exports for filesystem helpers."""
+"""Shared utility helpers for dabench."""
 
 from dabench.utils.paths import ensure_dir, expand_path
 

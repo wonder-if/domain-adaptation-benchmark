@@ -1,0 +1,9 @@
+id: iwildcam
+aliases: [iwildcam]
+storage:
+  backend: hf
+  dataset_name: anngrosha/iWildCam2020
+  default_source: mirror
+prepared:
+  layout: hf_prepared
+  splits: [train, test]

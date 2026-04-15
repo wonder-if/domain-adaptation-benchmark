@@ -1,0 +1,10 @@
+id: office-31
+aliases: [office-31, office31]
+storage:
+  backend: ms
+  repo_url: https://www.modelscope.cn/datasets/OmniData/Office-31.git
+  image_archive: domain_adaptation_images.tar.gz
+prepared:
+  layout: office31_images
+  domains: [amazon, dslr, webcam]
+  splits: [all]

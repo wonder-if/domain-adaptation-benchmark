@@ -4,4 +4,4 @@
 
 It currently focuses on dataset loading: local benchmark data in, framework-friendly dataset objects out.
 
-Start with [Datasets](datasets/index.md).
+Start with [Datasets](data/index.md).

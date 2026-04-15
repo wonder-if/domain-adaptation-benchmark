@@ -1,0 +1,10 @@
+id: office-home
+aliases: [office-home, office_home]
+storage:
+  backend: hf
+  dataset_name: flwrlabs/office-home
+  default_source: mirror
+prepared:
+  layout: hf_prepared
+  splits: [train]
+  domains: [Art, Clipart, Product, Real World]

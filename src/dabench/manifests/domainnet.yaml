@@ -1,0 +1,10 @@
+id: domainnet
+aliases: [domainnet]
+storage:
+  backend: hf
+  dataset_name: wltjr1007/DomainNet
+  default_source: mirror
+prepared:
+  layout: hf_prepared
+  splits: [train, test]
+  domains: [clipart, infograph, painting, quickdraw, real, sketch]

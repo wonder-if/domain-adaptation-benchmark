@@ -7,9 +7,12 @@
 Current focus:
 
 - dataset download and verification
-- local dataset inspection
 - loading data through libraries such as `datasets`, `torch`, and `transformers`
 - evaluation-side utilities for benchmark workflows
+
+Current non-focus:
+
+- CLI design or expansion, unless it is required to preserve an existing user-facing command
 
 Non-goals for now:
 
@@ -24,6 +27,8 @@ Non-goals for now:
 - Prefer small, composable Python modules over large scripts
 - Treat shell scripts as thin wrappers, not the main implementation
 - Prefer explicit paths and explicit configuration over hidden defaults
+- Prefer a layered, deterministic loading flow: manifest/config provides the source of truth, storage prepares local files, data loads a single domain or split from a concrete path, and higher layers assemble tasks or suites on top
+- Avoid guesswork or inference when the caller can pass the value explicitly; do not add aliases, auto-detection, filtering, or normalization unless it is required by a manifest-backed contract
 - Preserve compatibility when replacing an existing user-facing command
 - Keep dataset-specific logic inside dataset-specific modules
 

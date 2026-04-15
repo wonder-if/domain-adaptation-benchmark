@@ -17,24 +17,33 @@ cd domain-adaptation-benchmark
 pip install -e .[data]
 ```
 
-Load a prepared local dataset:
+Load a prepared local dataset, or load a single domain/split view:
 
 ```python
-from dabench.datasets import list_domains, load_hf_dataset
+from dabench.data import load_hf_dataset, load_view
+from dabench.storage import get_manifest
 
-print(list_domains("office-31"))
+print(get_manifest("office-31")["prepared"]["domains"])
 
 dataset = load_hf_dataset(
     "office-31",
     path="/path/to/office31",
-    domains=["amazon"],
+    domain="amazon",
+    split="all",
+)
+
+amazon = load_view(
+    "office-31",
+    path="/path/to/office31",
+    domain="amazon",
+    split="all",
 )
 ```
 
 Download data explicitly when needed:
 
 ```python
-from dabench.datasets import download_dataset
+from dabench.storage import download_dataset
 
 download_dataset(
     "office-home",
@@ -45,6 +54,13 @@ download_dataset(
 ```
 
 For Hugging Face-backed datasets, `source="mirror"` uses `https://hf-mirror.com`; `source="hf"` uses the official Hugging Face endpoint.
+
+List built-in closed-set UDA task suites:
+
+```bash
+dabench tasks list
+dabench tasks show office31_closed_set_uda
+```
 
 ## Supported Datasets
 
