@@ -3,9 +3,9 @@
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://wonder-if.github.io/domain-adaptation-benchmark/)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](pyproject.toml)
 
-Lightweight dataset utilities for domain adaptation benchmarks.
+Lightweight dataset utilities for domain adaptation research.
 
-`dabench` focuses on dataset download, local inspection, and experiment-friendly loading. It keeps data preparation explicit and returns Hugging Face `datasets.Dataset` objects where possible, so the same datasets can be used with PyTorch, `transformers`, or custom research code.
+`dabench` focuses on explicit dataset preparation, dataset-specific loading, and experiment suite assembly. It keeps data preparation explicit and returns Hugging Face `datasets.Dataset` objects where possible, so the same datasets can be used with PyTorch, `transformers`, or custom research code.
 
 ![dabench dataset overview](docs/assets/dataset_matrix_overview.png)
 
@@ -20,24 +20,12 @@ pip install -e .[data]
 Load a prepared local dataset, or load a single domain/split view:
 
 ```python
-from dabench.data import load_hf_dataset, load_view
-from dabench.storage import get_manifest
+from dabench.data import load_view
 
-print(get_manifest("office-31")["prepared"]["domains"])
-
-dataset = load_hf_dataset(
-    "office-31",
-    path="/path/to/office31",
-    domain="amazon",
-    split="all",
-)
-
-amazon = load_view(
-    "office-31",
-    path="/path/to/office31",
-    domain="amazon",
-    split="all",
-)
+domainnet = load_view("domainnet", domain="clipart", split="train", format="hf")
+office_home = load_view("office-home", domain="Art", format="hf")
+office31 = load_view("office-31", domain="amazon", format="torch")
+visda = load_view("visda-2017", domain="synthetic", split="train", format="hf")
 ```
 
 Download data explicitly when needed:
@@ -55,16 +43,19 @@ download_dataset(
 
 For Hugging Face-backed datasets, `source="mirror"` uses `https://hf-mirror.com`; `source="hf"` uses the official Hugging Face endpoint.
 
-List built-in closed-set UDA settings:
+Build and execute UDA suites:
 
-```bash
-dabench tasks list
-dabench tasks show office31_closed_set_uda
+```python
+from dabench.suite import build_suites, load_suite_item
+
+suite = build_suites(datasets="domainnet", setting="uda", format="hf")[0]
+item = suite["settings"][0]
+train_loader, val_loader, test_loader = load_suite_item(item)
 ```
 
 ## Supported Datasets
 
-| Dataset | Homepage | Domains / splits |
+| Dataset | Homepage | Domains |
 | --- | --- | --- |
 | DomainNet | 🤗 [wltjr1007/DomainNet](https://huggingface.co/datasets/wltjr1007/DomainNet) | `clipart`, `infograph`, `painting`, `quickdraw`, `real`, `sketch` |
 | Office-Home | 🤗 [flwrlabs/office-home](https://huggingface.co/datasets/flwrlabs/office-home) | `Art`, `Clipart`, `Product`, `Real World` |
