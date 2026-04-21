@@ -65,10 +65,10 @@ def _build_parser() -> argparse.ArgumentParser:
     office31_download.add_argument("--force", action="store_true", help="Recreate clone/extract/prepared directories.")
     office31_download.add_argument("--copy-images", action="store_true", help="Copy images instead of symlinking domains.")
 
-    tasks_parser = subparsers.add_parser("tasks", help="List and inspect benchmark task suites.")
+    tasks_parser = subparsers.add_parser("tasks", help="List and inspect benchmark setting suites.")
     tasks_subparsers = tasks_parser.add_subparsers(dest="tasks_command", required=True)
     tasks_subparsers.add_parser("list", help="List built-in benchmark suites.")
-    tasks_show = tasks_subparsers.add_parser("show", help="Show tasks in a built-in benchmark suite.")
+    tasks_show = tasks_subparsers.add_parser("show", help="Show settings in a built-in benchmark suite.")
     tasks_show.add_argument("suite_id", help="Built-in suite id, for example office31_closed_set_uda.")
 
     return parser
@@ -129,10 +129,10 @@ def main() -> None:
     if args.command == "tasks" and args.tasks_command == "list":
         payload = [
             {
-                "suite_id": suite.suite_id,
-                "name": suite.name,
-                "num_tasks": len(suite.tasks),
-                "metadata": dict(suite.metadata),
+                "suite_id": suite["suite_id"],
+                "name": suite["name"],
+                "num_settings": len(suite["settings"]),
+                "metadata": dict(suite["metadata"]),
             }
             for suite in list_suites()
         ]
@@ -141,7 +141,7 @@ def main() -> None:
 
     if args.command == "tasks" and args.tasks_command == "show":
         suite = get_suite(args.suite_id)
-        print(json.dumps(suite.to_dict(), indent=2, sort_keys=True))
+        print(json.dumps(suite, indent=2, sort_keys=True))
         return
 
     parser.error("unsupported command")

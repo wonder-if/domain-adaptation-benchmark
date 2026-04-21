@@ -120,14 +120,17 @@ def load_folder_domain_dataset(path: str | Path, *, decode: bool = True):
         {
             class_dir.name
             for domain_dir in domain_dirs
-            for class_dir in domain_dir.iterdir()
+            for class_dir in (domain_dir / "images").iterdir()
             if class_dir.is_dir()
         }
     )
     class_to_id = {name: idx for idx, name in enumerate(class_names)}
     records = []
     for domain_dir in domain_dirs:
-        for class_dir in sorted(child for child in domain_dir.iterdir() if child.is_dir()):
+        image_root = domain_dir / "images"
+        if not image_root.is_dir():
+            raise FileNotFoundError(f"Missing Office-31 image directory: {image_root}")
+        for class_dir in sorted(child for child in image_root.iterdir() if child.is_dir()):
             label = class_to_id[class_dir.name]
             for image_path in sorted(class_dir.rglob("*")):
                 if image_path.is_file() and image_path.suffix.lower() in {".jpg", ".jpeg", ".png", ".bmp", ".webp"}:
@@ -180,7 +183,7 @@ def load_visda_dataset_dict(path: str | Path, *, decode: bool = True):
                             {
                                 "image": str(image_path),
                                 "label": label,
-                                "domain": split_name,
+                                "domain": "synthetic" if split_name == "train" else "real",
                                 "image_path": str(image_path),
                                 "split": split_name,
                             }
@@ -192,7 +195,7 @@ def load_visda_dataset_dict(path: str | Path, *, decode: bool = True):
                         {
                             "image": str(image_path),
                             "label": -1,
-                            "domain": split_name,
+                            "domain": "real",
                             "image_path": str(image_path),
                             "split": split_name,
                         }

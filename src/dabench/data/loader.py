@@ -34,6 +34,8 @@ class _TransformedDataset:
     def __getitem__(self, index: int) -> dict[str, Any]:
         sample = _as_dict(self.dataset[index])
         image = sample.get("image")
+        if hasattr(image, "convert"):
+            image = image.convert("RGB")
         if image is not None and self.transform is not None:
             sample["pixel_values"] = self.transform(image)
         return sample

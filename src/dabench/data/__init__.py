@@ -2,7 +2,6 @@
 
 from dabench.data.dataset import (
     DomainDatasetView,
-    load_dataset,
     load_hf_dataset,
     load_view,
 )
@@ -24,7 +23,6 @@ __all__ = [
     "build_test_transform",
     "build_train_transform",
     "default_collator",
-    "load_dataset",
     "load_hf_dataset",
     "load_view",
     "make_paired_forever_loader",

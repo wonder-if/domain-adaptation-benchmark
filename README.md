@@ -55,7 +55,7 @@ download_dataset(
 
 For Hugging Face-backed datasets, `source="mirror"` uses `https://hf-mirror.com`; `source="hf"` uses the official Hugging Face endpoint.
 
-List built-in closed-set UDA task suites:
+List built-in closed-set UDA settings:
 
 ```bash
 dabench tasks list
