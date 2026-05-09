@@ -161,6 +161,7 @@ venv.bak/
 /DABENCH_WORK_MEMO.md
 /DEVICE_ENVIRONMENT.md
 /AGENTS.md
+/related_works/**/output/
 
 # mypy
 .mypy_cache/
