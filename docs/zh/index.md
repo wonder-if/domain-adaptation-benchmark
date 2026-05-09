@@ -2,6 +2,8 @@
 
 `dabench` 是一个面向领域自适应研究的轻量数据集工具包。
 
+![dabench dataset overview](../assets/dataset_matrix_overview.png)
+
 ## 概览
 
 项目当前按下面的层次组织：
@@ -16,5 +18,6 @@ prepare      load_hf_dataset       load_suite_item
 - `data` 负责从本地路径加载一个具体的数据视图。
 - `setting` 负责组装任务级 loader，例如 UDA。
 - `suite` 负责在 setting 之上批量生成实验配置。
+- `results` 负责记录单次实验并聚合 benchmark 表格。
 
-从[数据集](data/index.md)开始，再看[场景](setting/index.md)，最后看[套件](suite/index.md)。
+从[数据集](data/index.md)开始，再看[场景](setting/index.md)、[套件](suite/index.md)，最后看[结果](results/index.md)。

@@ -5,6 +5,12 @@ from dabench.data.dataset import (
     load_hf_dataset,
     load_view,
 )
+from dabench.data.unida import (
+    get_task,
+    load_unida,
+    load_unida_views,
+    make_class_split,
+)
 from dabench.data.loader import (
     build_loader,
     default_collator,
@@ -24,6 +30,10 @@ __all__ = [
     "build_train_transform",
     "default_collator",
     "load_hf_dataset",
+    "load_unida",
+    "load_unida_views",
     "load_view",
     "make_paired_forever_loader",
+    "get_task",
+    "make_class_split",
 ]

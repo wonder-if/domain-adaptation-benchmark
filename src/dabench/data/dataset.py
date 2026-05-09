@@ -12,10 +12,9 @@ from dabench.data.common import (
     load_prepared_dataset_dict,
     load_visda_dataset_dict,
 )
+from dabench.data.minidomainnet import load_mini_domainnet_dataset_dict
 from dabench.storage.manifest import get_manifest
 from dabench.storage.paths import resolve_dataset_path
-from dabench.utils.imports import require_datasets_for_loading
-
 
 def _resolve_domain_value(dataset, domain: str | int):
     feature = dataset.features.get("domain")
@@ -73,6 +72,9 @@ def load_view(
     layout = manifest.get("prepared", {}).get("layout")
     if layout == "hf_prepared":
         dataset_dict = load_hf_dataset(actual_path, decode=decode)
+        dataset = _select_split(dataset_dict, split)
+    elif layout == "domainnet_split_files":
+        dataset_dict = load_mini_domainnet_dataset_dict(actual_path, decode=decode, dataset_name=manifest["id"])
         dataset = _select_split(dataset_dict, split)
     elif layout == "office31_images":
         dataset_dict = load_folder_domain_dataset(actual_path, decode=decode)

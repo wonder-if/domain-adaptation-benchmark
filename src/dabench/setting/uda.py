@@ -30,6 +30,13 @@ def _role_views(dataset: str, *, source_domain: str | int, target_domain: str | 
             "val": {"domain": target_domain, "split": "test"},
             "test": {"domain": target_domain, "split": "test"},
         }
+    if normalized in {"minidomainnet", "mini-domainnet"}:
+        return {
+            "source_train": {"domain": source_domain, "split": "train"},
+            "target_train": {"domain": target_domain, "split": "train"},
+            "val": {"domain": target_domain, "split": "test"},
+            "test": {"domain": target_domain, "split": "test"},
+        }
     if normalized == "visda-2017":
         return {
             "source_train": {"domain": source_domain, "split": "train"},

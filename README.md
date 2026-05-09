@@ -26,6 +26,7 @@ domainnet = load_view("domainnet", domain="clipart", split="train", format="hf")
 office_home = load_view("office-home", domain="Art", format="hf")
 office31 = load_view("office-31", domain="amazon", format="torch")
 visda = load_view("visda-2017", domain="synthetic", split="train", format="hf")
+minidomainnet = load_view("minidomainnet", domain="clipart", split="train", format="hf")
 ```
 
 Download data explicitly when needed:
@@ -43,6 +44,8 @@ download_dataset(
 
 For Hugging Face-backed datasets, `source="mirror"` uses `https://hf-mirror.com`; `source="hf"` uses the official Hugging Face endpoint.
 
+`minidomainnet` reuses prepared `domainnet` data and filters it using `splits_mini/*.txt`. Configure both the prepared dataset `path` and the `split_dir` in `src/dabench/config/paths.json` (or your overridden dabench path config).
+
 Build and execute UDA suites:
 
 ```python
@@ -58,6 +61,7 @@ train_loader, val_loader, test_loader = load_suite_item(item)
 | Dataset | Homepage | Domains |
 | --- | --- | --- |
 | DomainNet | 🤗 [wltjr1007/DomainNet](https://huggingface.co/datasets/wltjr1007/DomainNet) | `clipart`, `infograph`, `painting`, `quickdraw`, `real`, `sketch` |
+| miniDomainNet | DomainNet + mini split files | `clipart`, `painting`, `real`, `sketch` |
 | Office-Home | 🤗 [flwrlabs/office-home](https://huggingface.co/datasets/flwrlabs/office-home) | `Art`, `Clipart`, `Product`, `Real World` |
 | Office-31 | Ⓜ️ [OmniData/Office-31](https://www.modelscope.cn/datasets/OmniData/Office-31) | `amazon`, `dslr`, `webcam` |
 | Camelyon17 | 🤗 [jxie/camelyon17](https://huggingface.co/datasets/jxie/camelyon17) | `id_train`, `id_val`, `unlabeled_train`, `ood_val`, `ood_test` |

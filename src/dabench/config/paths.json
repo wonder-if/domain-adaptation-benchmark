@@ -6,6 +6,10 @@
     "domainnet": {
       "path": "/data/wyh/datasets/domainnet_hf_prepared/wltjr1007_DomainNet"
     },
+    "minidomainnet": {
+      "path": "/data/wyh/datasets/domainnet_hf_prepared/wltjr1007_DomainNet",
+      "split_dir": "/data/wyh/datasets/domainnet/splits_mini"
+    },
     "iwildcam": {
       "path": "/data/wyh/datasets/iwildcam_hf_prepared/anngrosha_iWildCam2020"
     },

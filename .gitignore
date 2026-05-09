@@ -162,6 +162,13 @@ venv.bak/
 /DEVICE_ENVIRONMENT.md
 /AGENTS.md
 /related_works/**/output/
+/related_works/**/logs/
+/related_works/**/__pycache__/
+/related_works/**/.DS_Store
+/related_works/**/assets/*.pt
+/related_works/**/data/models/
+/related_works/**/data/WordNet/
+/related_works/**/data/nltk_data/
 
 # mypy
 .mypy_cache/

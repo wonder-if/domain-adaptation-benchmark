@@ -17,9 +17,17 @@ nav:
       - Overview: data/index.md
   - Settings: setting/index.md
   - Suites: suite/index.md
+  - Results:
+      - Overview: results/index.md
+      - Schema: results/schema.md
+      - Integration: results/integration.md
   - 中文:
       - 首页: zh/index.md
       - 数据集:
           - 概览: zh/data/index.md
       - 场景: zh/setting/index.md
       - 套件: zh/suite/index.md
+      - 结果:
+          - 概览: zh/results/index.md
+          - Schema: zh/results/schema.md
+          - 接入方式: zh/results/integration.md

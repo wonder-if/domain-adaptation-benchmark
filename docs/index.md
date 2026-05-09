@@ -2,6 +2,8 @@
 
 `dabench` is a lightweight dataset utility package for domain adaptation research.
 
+![dabench dataset overview](assets/dataset_matrix_overview.png)
+
 ## Overview
 
 The project is organized as a layered loading flow:
@@ -16,5 +18,6 @@ prepare      load_hf_dataset       load_suite_item
 - `data` loads one concrete dataset view from a local path or prepared config.
 - `setting` assembles task-level loaders such as UDA.
 - `suite` builds batchable experiment configurations on top of settings.
+- `results` records one run and aggregates benchmark-facing tables.
 
-Start with [Datasets](data/index.md), then [Settings](setting/index.md), then [Suites](suite/index.md).
+Start with [Datasets](data/index.md), then [Settings](setting/index.md), then [Suites](suite/index.md), then [Results](results/index.md).

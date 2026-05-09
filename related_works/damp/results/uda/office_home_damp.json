@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0",
+  "setting": "uda",
+  "dataset": "office-home",
+  "method": "DAMP",
+  "table_layout": "transfer_pairs",
+  "primary_metric": "accuracy",
+  "results": [
+    {
+      "source_domain": "Art",
+      "target_domain": "Clipart",
+      "metrics": {
+        "accuracy": 59.1,
+        "error": 40.9,
+        "macro_f1": 56.8
+      },
+      "run": {
+        "seed": 1,
+        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_art_to_clipart/seed_1/log.txt-2026-05-08-20-03-44",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_art_to_clipart/seed_1"
+      }
+    },
+    {
+      "source_domain": "Art",
+      "target_domain": "Product",
+      "metrics": {
+        "accuracy": 87.9,
+        "error": 12.1,
+        "macro_f1": 86.9
+      },
+      "run": {
+        "seed": 1,
+        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_art_to_product/seed_1/log.txt",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_art_to_product/seed_1"
+      }
+    },
+    {
+      "source_domain": "Art",
+      "target_domain": "Real World",
+      "metrics": {
+        "accuracy": 85.8,
+        "error": 14.2,
+        "macro_f1": 84.1
+      },
+      "run": {
+        "seed": 1,
+        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_art_to_real_world/seed_1/log.txt",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_art_to_real_world/seed_1"
+      }
+    },
+    {
+      "source_domain": "Clipart",
+      "target_domain": "Art",
+      "metrics": {
+        "accuracy": 74.2,
+        "error": 25.8,
+        "macro_f1": 70.2
+      },
+      "run": {
+        "seed": 1,
+        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_clipart_to_art/seed_1/log.txt",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_clipart_to_art/seed_1"
+      }
+    },
+    {
+      "source_domain": "Clipart",
+      "target_domain": "Product",
+      "metrics": {
+        "accuracy": 88.2,
+        "error": 11.8,
+        "macro_f1": 87.3
+      },
+      "run": {
+        "seed": 1,
+        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_clipart_to_product/seed_1/log.txt",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_clipart_to_product/seed_1"
+      }
+    },
+    {
+      "source_domain": "Clipart",
+      "target_domain": "Real World",
+      "metrics": {
+        "accuracy": 85.6,
+        "error": 14.4,
+        "macro_f1": 83.9
+      },
+      "run": {
+        "seed": 1,
+        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_clipart_to_real_world/seed_1/log.txt",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_clipart_to_real_world/seed_1"
+      }
+    },
+    {
+      "source_domain": "Product",
+      "target_domain": "Art",
+      "metrics": {
+        "accuracy": 74.7,
+        "error": 25.3,
+        "macro_f1": 70.0
+      },
+      "run": {
+        "seed": 1,
+        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_product_to_art/seed_1/log.txt-2026-05-08-20-03-43",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_product_to_art/seed_1"
+      }
+    },
+    {
+      "source_domain": "Product",
+      "target_domain": "Clipart",
+      "metrics": {
+        "accuracy": 59.3,
+        "error": 40.7,
+        "macro_f1": 57.3
+      },
+      "run": {
+        "seed": 1,
+        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_product_to_clipart/seed_1/log.txt",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_product_to_clipart/seed_1"
+      }
+    },
+    {
+      "source_domain": "Product",
+      "target_domain": "Real World",
+      "metrics": {
+        "accuracy": 86.1,
+        "error": 13.9,
+        "macro_f1": 84.6
+      },
+      "run": {
+        "seed": 1,
+        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_product_to_real_world/seed_1/log.txt",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_product_to_real_world/seed_1"
+      }
+    },
+    {
+      "source_domain": "Real World",
+      "target_domain": "Art",
+      "metrics": {
+        "accuracy": 75.9,
+        "error": 24.1,
+        "macro_f1": 71.6
+      },
+      "run": {
+        "seed": 1,
+        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_real_world_to_art/seed_1/log.txt",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_real_world_to_art/seed_1"
+      }
+    },
+    {
+      "source_domain": "Real World",
+      "target_domain": "Clipart",
+      "metrics": {
+        "accuracy": 60.2,
+        "error": 39.8,
+        "macro_f1": 58.7
+      },
+      "run": {
+        "seed": 1,
+        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_real_world_to_clipart/seed_1/log.txt",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_real_world_to_clipart/seed_1"
+      }
+    },
+    {
+      "source_domain": "Real World",
+      "target_domain": "Product",
+      "metrics": {
+        "accuracy": 89.1,
+        "error": 10.9,
+        "macro_f1": 88.5
+      },
+      "run": {
+        "seed": 1,
+        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_real_world_to_product/seed_1/log.txt",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_real_world_to_product/seed_1"
+      }
+    }
+  ]
+}

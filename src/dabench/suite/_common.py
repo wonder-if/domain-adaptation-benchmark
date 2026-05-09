@@ -21,6 +21,7 @@ def build_uda_suite_items(
     dataset_defaults=None,
     setting_defaults=None,
     format: str,
+    setting_name: str = "uda",
 ):
     dataset_defaults = {} if dataset_defaults is None else dataset_defaults
     setting_defaults = {} if setting_defaults is None else setting_defaults
@@ -31,6 +32,7 @@ def build_uda_suite_items(
             dataset_defaults,
             setting_defaults,
             item,
+            {"setting": setting_name},
             {"format": format},
         )
         suite_items.append(cfg)

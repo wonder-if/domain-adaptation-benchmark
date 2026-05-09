@@ -1,0 +1,22 @@
+INPUT:
+  SIZE: (224, 224)
+  TRANSFORMS: ["normalize"]
+
+DATASET:
+  NAME: "VisDA17"
+  SOURCE_DOMAINS: ["synthetic"]
+  TARGET_DOMAINS: ["real"]
+
+DABENCH:
+  DATASET_NAME: "visda-2017"
+
+MODEL:
+  BACKBONE:
+    NAME: "ViT-B/16"
+
+TRAINER:
+  DAMP:
+    STRONG_TRANSFORMS: ["randaugment", "normalize"]
+
+TEST:
+  PER_CLASS_RESULT: True

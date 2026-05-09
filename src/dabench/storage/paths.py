@@ -48,6 +48,12 @@ def _dataset_map(payload: dict[str, Any]) -> dict[str, Any]:
     return datasets
 
 
+def get_dataset_entry(name: str) -> Any:
+    payload = _read_payload()
+    entry = _dataset_map(payload).get(_normalize_name(name))
+    return entry
+
+
 def _entry_path(entry: Any) -> Path | None:
     if entry is None:
         return None
@@ -64,9 +70,26 @@ def _entry_path(entry: Any) -> Path | None:
 
 
 def get_dataset_path(name: str) -> Path | None:
-    payload = _read_payload()
-    entry = _dataset_map(payload).get(_normalize_name(name))
+    entry = get_dataset_entry(name)
     return _entry_path(entry)
+
+
+def get_dataset_field(name: str, field: str) -> Any:
+    entry = get_dataset_entry(name)
+    if entry is None:
+        return None
+    if isinstance(entry, dict):
+        return entry.get(field)
+    return None
+
+
+def get_dataset_field_path(name: str, field: str) -> Path | None:
+    value = get_dataset_field(name, field)
+    if value is None:
+        return None
+    if not isinstance(value, str):
+        raise ValueError(f"Invalid dataset path config: field {field!r} for dataset {name!r} must be a string.")
+    return expand_path(value)
 
 
 def set_dataset_path(name: str, path: str | Path) -> Path:

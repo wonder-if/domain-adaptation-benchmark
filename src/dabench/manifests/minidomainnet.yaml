@@ -1,0 +1,9 @@
+id: minidomainnet
+aliases: [mini-domainnet, mini_domainnet]
+storage:
+  backend: other
+prepared:
+  layout: domainnet_split_files
+  base_dataset: domainnet
+  splits: [train, test]
+  domains: [clipart, painting, real, sketch]
