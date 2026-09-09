@@ -99,5 +99,16 @@ suite 层适合做可重复的 benchmark 实验：
 
 - 选择数据集
 - 选择 `setting="uda"`、`setting="dg"` 或 `setting="unida"`
-- 选择 `format="hf"` 或 `format="torch"`
+- 选择 `format="hf"`、`format="torch"` 或 `format="feature"`
 - 遍历 `suite["settings"]`
+
+使用缓存特征时，通过 `dataset_defaults` 把模型选择透传到每个 suite item：
+
+```python
+suite = build_suites(
+    datasets="office-31",
+    setting="uda",
+    format="feature",
+    dataset_defaults={"feature_model": "clip-vit-base-patch16"},
+)[0]
+```

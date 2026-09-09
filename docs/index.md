@@ -12,12 +12,17 @@ The project is organized as a layered loading flow:
 storage  ->  data  ->  setting  ->  suite
 manifest     load_view  load_uda   build_suites
 prepare      load_hf_dataset       load_suite_item
+
+models
+load_model
 ```
 
 - `storage` prepares local dataset directories from manifests.
-- `data` loads one concrete dataset view from a local path or prepared config.
+- `data` loads one concrete image or cached-feature dataset view from local config.
+- `models` loads local pretrained backbones from the path config without adaptation algorithms.
 - `setting` assembles task-level loaders such as UDA.
 - `suite` builds batchable experiment configurations on top of settings.
 - `results` records one run and aggregates benchmark-facing tables.
 
-Start with [Datasets](data/index.md), then [Settings](setting/index.md), then [Suites](suite/index.md), then [Results](results/index.md).
+Start with [Datasets](data/index.md) and [Models](model/index.md), then
+[Settings](setting/index.md), [Suites](suite/index.md), and [Results](results/index.md).

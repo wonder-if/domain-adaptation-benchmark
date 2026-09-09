@@ -1,0 +1,812 @@
+{
+  "schema_version": "1.0",
+  "record_type": "run_record",
+  "metrics_schema_version": "1.0",
+  "run_id": "visda_2017__uda__DAMP__ViT_B_16__synthetic_to_real__seed1",
+  "dataset": "visda-2017",
+  "setting": "uda",
+  "method": "DAMP",
+  "algorithm_name": null,
+  "backbone": "ViT-B/16",
+  "source_domain": "synthetic",
+  "target_domain": "real",
+  "seed": 1,
+  "status": "completed",
+  "output_dir": "related_works/damp/codes/damp-dabench/output/visda17/DAMP/damp/0.5_2.0_synthetic_to_real/seed_1",
+  "selected_checkpoint": "best",
+  "selection_metric": "average_class_accuracy",
+  "selection_mode": "max",
+  "start_time": null,
+  "end_time": null,
+  "config": {
+    "log_path": "related_works/damp/codes/damp-dabench/output/visda17/DAMP/damp/0.5_2.0_synthetic_to_real/seed_1/log.txt"
+  },
+  "extra": {},
+  "final_metrics": {
+    "accuracy": 87.7,
+    "error": 12.3,
+    "macro_f1": 88.5,
+    "average_class_accuracy": 90.0
+  },
+  "best_metrics": {
+    "accuracy": 87.9,
+    "error": 12.1,
+    "macro_f1": 88.8,
+    "average_class_accuracy": 90.3
+  },
+  "final_class_metrics": {
+    "aeroplane": 98.7,
+    "bicycle": 92.5,
+    "bus": 86.0,
+    "car": 75.0,
+    "horse": 98.1,
+    "knife": 97.5,
+    "motorcycle": 94.5,
+    "person": 78.0,
+    "plant": 92.5,
+    "skateboard": 95.9,
+    "train": 94.6,
+    "truck": 77.1
+  },
+  "best_class_metrics": {
+    "aeroplane": 99.1,
+    "bicycle": 92.8,
+    "bus": 91.8,
+    "car": 74.8,
+    "horse": 98.6,
+    "knife": 96.4,
+    "motorcycle": 95.0,
+    "person": 82.7,
+    "plant": 93.0,
+    "skateboard": 94.9,
+    "train": 95.4,
+    "truck": 69.6
+  },
+  "eval_history": [
+    {
+      "split": "test",
+      "step": 1,
+      "metrics": {
+        "accuracy": 86.7,
+        "error": 13.3,
+        "macro_f1": 87.7,
+        "average_class_accuracy": 89.5
+      },
+      "class_metrics": {
+        "aeroplane": 99.0,
+        "bicycle": 91.1,
+        "bus": 93.2,
+        "car": 72.6,
+        "horse": 98.5,
+        "knife": 96.2,
+        "motorcycle": 94.8,
+        "person": 82.5,
+        "plant": 91.3,
+        "skateboard": 95.1,
+        "train": 95.1,
+        "truck": 64.4
+      }
+    },
+    {
+      "split": "test",
+      "step": 2,
+      "metrics": {
+        "accuracy": 87.4,
+        "error": 12.6,
+        "macro_f1": 88.2,
+        "average_class_accuracy": 89.7
+      },
+      "class_metrics": {
+        "aeroplane": 98.8,
+        "bicycle": 93.0,
+        "bus": 92.6,
+        "car": 77.6,
+        "horse": 98.7,
+        "knife": 96.0,
+        "motorcycle": 94.4,
+        "person": 84.5,
+        "plant": 89.5,
+        "skateboard": 95.8,
+        "train": 94.3,
+        "truck": 61.7
+      }
+    },
+    {
+      "split": "test",
+      "step": 3,
+      "metrics": {
+        "accuracy": 86.2,
+        "error": 13.8,
+        "macro_f1": 87.0,
+        "average_class_accuracy": 88.9
+      },
+      "class_metrics": {
+        "aeroplane": 99.1,
+        "bicycle": 91.7,
+        "bus": 92.3,
+        "car": 72.7,
+        "horse": 98.8,
+        "knife": 92.0,
+        "motorcycle": 95.5,
+        "person": 82.2,
+        "plant": 89.9,
+        "skateboard": 96.0,
+        "train": 94.7,
+        "truck": 61.5
+      }
+    },
+    {
+      "split": "test",
+      "step": 4,
+      "metrics": {
+        "accuracy": 86.9,
+        "error": 13.1,
+        "macro_f1": 87.7,
+        "average_class_accuracy": 89.3
+      },
+      "class_metrics": {
+        "aeroplane": 98.7,
+        "bicycle": 90.0,
+        "bus": 93.4,
+        "car": 76.4,
+        "horse": 98.7,
+        "knife": 96.5,
+        "motorcycle": 95.3,
+        "person": 82.0,
+        "plant": 92.2,
+        "skateboard": 94.0,
+        "train": 95.5,
+        "truck": 58.4
+      }
+    },
+    {
+      "split": "test",
+      "step": 5,
+      "metrics": {
+        "accuracy": 87.3,
+        "error": 12.7,
+        "macro_f1": 88.2,
+        "average_class_accuracy": 89.7
+      },
+      "class_metrics": {
+        "aeroplane": 98.9,
+        "bicycle": 91.6,
+        "bus": 93.0,
+        "car": 75.2,
+        "horse": 98.9,
+        "knife": 96.0,
+        "motorcycle": 95.4,
+        "person": 82.5,
+        "plant": 92.7,
+        "skateboard": 95.0,
+        "train": 93.9,
+        "truck": 63.8
+      }
+    },
+    {
+      "split": "test",
+      "step": 6,
+      "metrics": {
+        "accuracy": 87.7,
+        "error": 12.3,
+        "macro_f1": 88.6,
+        "average_class_accuracy": 90.0
+      },
+      "class_metrics": {
+        "aeroplane": 98.7,
+        "bicycle": 88.5,
+        "bus": 91.8,
+        "car": 73.7,
+        "horse": 98.4,
+        "knife": 94.5,
+        "motorcycle": 95.1,
+        "person": 80.7,
+        "plant": 92.2,
+        "skateboard": 96.0,
+        "train": 94.0,
+        "truck": 76.5
+      }
+    },
+    {
+      "split": "test",
+      "step": 7,
+      "metrics": {
+        "accuracy": 87.1,
+        "error": 12.9,
+        "macro_f1": 87.7,
+        "average_class_accuracy": 89.5
+      },
+      "class_metrics": {
+        "aeroplane": 98.9,
+        "bicycle": 93.7,
+        "bus": 92.7,
+        "car": 76.7,
+        "horse": 98.6,
+        "knife": 94.8,
+        "motorcycle": 94.7,
+        "person": 78.7,
+        "plant": 93.2,
+        "skateboard": 96.4,
+        "train": 94.2,
+        "truck": 61.2
+      }
+    },
+    {
+      "split": "test",
+      "step": 8,
+      "metrics": {
+        "accuracy": 87.4,
+        "error": 12.6,
+        "macro_f1": 87.9,
+        "average_class_accuracy": 89.5
+      },
+      "class_metrics": {
+        "aeroplane": 98.9,
+        "bicycle": 91.3,
+        "bus": 94.1,
+        "car": 79.0,
+        "horse": 98.7,
+        "knife": 93.4,
+        "motorcycle": 94.6,
+        "person": 79.8,
+        "plant": 92.1,
+        "skateboard": 96.6,
+        "train": 95.1,
+        "truck": 60.6
+      }
+    },
+    {
+      "split": "test",
+      "step": 9,
+      "metrics": {
+        "accuracy": 86.5,
+        "error": 13.5,
+        "macro_f1": 87.4,
+        "average_class_accuracy": 89.0
+      },
+      "class_metrics": {
+        "aeroplane": 98.5,
+        "bicycle": 92.3,
+        "bus": 93.1,
+        "car": 76.2,
+        "horse": 98.4,
+        "knife": 93.6,
+        "motorcycle": 94.4,
+        "person": 87.3,
+        "plant": 87.1,
+        "skateboard": 95.2,
+        "train": 95.2,
+        "truck": 56.1
+      }
+    },
+    {
+      "split": "test",
+      "step": 10,
+      "metrics": {
+        "accuracy": 87.2,
+        "error": 12.8,
+        "macro_f1": 87.8,
+        "average_class_accuracy": 89.5
+      },
+      "class_metrics": {
+        "aeroplane": 98.8,
+        "bicycle": 90.7,
+        "bus": 93.5,
+        "car": 77.6,
+        "horse": 98.7,
+        "knife": 97.1,
+        "motorcycle": 96.1,
+        "person": 81.4,
+        "plant": 92.1,
+        "skateboard": 95.1,
+        "train": 94.8,
+        "truck": 58.3
+      }
+    },
+    {
+      "split": "test",
+      "step": 11,
+      "metrics": {
+        "accuracy": 86.6,
+        "error": 13.4,
+        "macro_f1": 87.6,
+        "average_class_accuracy": 89.5
+      },
+      "class_metrics": {
+        "aeroplane": 98.9,
+        "bicycle": 91.1,
+        "bus": 93.5,
+        "car": 70.7,
+        "horse": 98.6,
+        "knife": 95.4,
+        "motorcycle": 95.0,
+        "person": 83.0,
+        "plant": 92.0,
+        "skateboard": 95.3,
+        "train": 94.7,
+        "truck": 65.9
+      }
+    },
+    {
+      "split": "test",
+      "step": 12,
+      "metrics": {
+        "accuracy": 87.5,
+        "error": 12.5,
+        "macro_f1": 88.1,
+        "average_class_accuracy": 89.8
+      },
+      "class_metrics": {
+        "aeroplane": 98.9,
+        "bicycle": 91.3,
+        "bus": 91.3,
+        "car": 78.3,
+        "horse": 98.7,
+        "knife": 97.5,
+        "motorcycle": 94.9,
+        "person": 84.0,
+        "plant": 91.9,
+        "skateboard": 94.2,
+        "train": 96.4,
+        "truck": 59.4
+      }
+    },
+    {
+      "split": "test",
+      "step": 13,
+      "metrics": {
+        "accuracy": 87.0,
+        "error": 13.0,
+        "macro_f1": 87.5,
+        "average_class_accuracy": 89.3
+      },
+      "class_metrics": {
+        "aeroplane": 99.0,
+        "bicycle": 91.3,
+        "bus": 93.2,
+        "car": 80.1,
+        "horse": 98.7,
+        "knife": 97.2,
+        "motorcycle": 95.0,
+        "person": 82.8,
+        "plant": 92.3,
+        "skateboard": 95.3,
+        "train": 94.6,
+        "truck": 51.5
+      }
+    },
+    {
+      "split": "test",
+      "step": 14,
+      "metrics": {
+        "accuracy": 86.5,
+        "error": 13.5,
+        "macro_f1": 87.4,
+        "average_class_accuracy": 89.4
+      },
+      "class_metrics": {
+        "aeroplane": 99.0,
+        "bicycle": 92.6,
+        "bus": 93.0,
+        "car": 72.1,
+        "horse": 98.3,
+        "knife": 96.4,
+        "motorcycle": 94.9,
+        "person": 82.8,
+        "plant": 90.7,
+        "skateboard": 96.1,
+        "train": 95.5,
+        "truck": 61.6
+      }
+    },
+    {
+      "split": "test",
+      "step": 15,
+      "metrics": {
+        "accuracy": 86.9,
+        "error": 13.1,
+        "macro_f1": 87.4,
+        "average_class_accuracy": 89.2
+      },
+      "class_metrics": {
+        "aeroplane": 98.7,
+        "bicycle": 93.1,
+        "bus": 93.4,
+        "car": 79.7,
+        "horse": 98.6,
+        "knife": 97.4,
+        "motorcycle": 93.6,
+        "person": 81.5,
+        "plant": 90.6,
+        "skateboard": 95.0,
+        "train": 95.5,
+        "truck": 53.1
+      }
+    },
+    {
+      "split": "test",
+      "step": 16,
+      "metrics": {
+        "accuracy": 87.4,
+        "error": 12.6,
+        "macro_f1": 88.2,
+        "average_class_accuracy": 90.0
+      },
+      "class_metrics": {
+        "aeroplane": 99.2,
+        "bicycle": 93.6,
+        "bus": 90.7,
+        "car": 75.3,
+        "horse": 98.6,
+        "knife": 97.3,
+        "motorcycle": 93.4,
+        "person": 82.1,
+        "plant": 91.5,
+        "skateboard": 95.3,
+        "train": 95.4,
+        "truck": 67.5
+      }
+    },
+    {
+      "split": "test",
+      "step": 17,
+      "metrics": {
+        "accuracy": 86.8,
+        "error": 13.2,
+        "macro_f1": 87.6,
+        "average_class_accuracy": 89.4
+      },
+      "class_metrics": {
+        "aeroplane": 99.0,
+        "bicycle": 92.8,
+        "bus": 93.9,
+        "car": 75.0,
+        "horse": 98.4,
+        "knife": 97.4,
+        "motorcycle": 94.6,
+        "person": 82.9,
+        "plant": 90.3,
+        "skateboard": 95.0,
+        "train": 93.9,
+        "truck": 60.1
+      }
+    },
+    {
+      "split": "test",
+      "step": 18,
+      "metrics": {
+        "accuracy": 87.5,
+        "error": 12.5,
+        "macro_f1": 88.1,
+        "average_class_accuracy": 89.7
+      },
+      "class_metrics": {
+        "aeroplane": 98.7,
+        "bicycle": 91.9,
+        "bus": 92.1,
+        "car": 78.3,
+        "horse": 98.5,
+        "knife": 97.7,
+        "motorcycle": 94.2,
+        "person": 83.0,
+        "plant": 92.3,
+        "skateboard": 93.3,
+        "train": 93.7,
+        "truck": 62.7
+      }
+    },
+    {
+      "split": "test",
+      "step": 19,
+      "metrics": {
+        "accuracy": 87.9,
+        "error": 12.1,
+        "macro_f1": 88.8,
+        "average_class_accuracy": 90.3
+      },
+      "class_metrics": {
+        "aeroplane": 99.1,
+        "bicycle": 92.8,
+        "bus": 91.8,
+        "car": 74.8,
+        "horse": 98.6,
+        "knife": 96.4,
+        "motorcycle": 95.0,
+        "person": 82.7,
+        "plant": 93.0,
+        "skateboard": 94.9,
+        "train": 95.4,
+        "truck": 69.6
+      }
+    },
+    {
+      "split": "test",
+      "step": 20,
+      "metrics": {
+        "accuracy": 87.8,
+        "error": 12.2,
+        "macro_f1": 88.6,
+        "average_class_accuracy": 90.2
+      },
+      "class_metrics": {
+        "aeroplane": 99.0,
+        "bicycle": 91.0,
+        "bus": 90.8,
+        "car": 75.2,
+        "horse": 98.5,
+        "knife": 97.5,
+        "motorcycle": 95.4,
+        "person": 81.8,
+        "plant": 92.9,
+        "skateboard": 94.2,
+        "train": 95.3,
+        "truck": 70.9
+      }
+    },
+    {
+      "split": "test",
+      "step": 21,
+      "metrics": {
+        "accuracy": 87.0,
+        "error": 13.0,
+        "macro_f1": 87.3,
+        "average_class_accuracy": 89.5
+      },
+      "class_metrics": {
+        "aeroplane": 98.7,
+        "bicycle": 92.7,
+        "bus": 91.4,
+        "car": 75.0,
+        "horse": 98.1,
+        "knife": 98.5,
+        "motorcycle": 94.4,
+        "person": 77.6,
+        "plant": 90.6,
+        "skateboard": 94.9,
+        "train": 95.1,
+        "truck": 67.1
+      }
+    },
+    {
+      "split": "test",
+      "step": 22,
+      "metrics": {
+        "accuracy": 86.9,
+        "error": 13.1,
+        "macro_f1": 87.9,
+        "average_class_accuracy": 89.7
+      },
+      "class_metrics": {
+        "aeroplane": 98.9,
+        "bicycle": 92.5,
+        "bus": 91.2,
+        "car": 72.6,
+        "horse": 98.5,
+        "knife": 97.5,
+        "motorcycle": 96.1,
+        "person": 85.2,
+        "plant": 92.3,
+        "skateboard": 93.2,
+        "train": 94.6,
+        "truck": 63.7
+      }
+    },
+    {
+      "split": "test",
+      "step": 23,
+      "metrics": {
+        "accuracy": 87.1,
+        "error": 12.9,
+        "macro_f1": 88.5,
+        "average_class_accuracy": 90.0
+      },
+      "class_metrics": {
+        "aeroplane": 99.0,
+        "bicycle": 90.9,
+        "bus": 91.7,
+        "car": 69.4,
+        "horse": 98.5,
+        "knife": 95.5,
+        "motorcycle": 95.4,
+        "person": 84.3,
+        "plant": 91.6,
+        "skateboard": 94.5,
+        "train": 93.2,
+        "truck": 76.0
+      }
+    },
+    {
+      "split": "test",
+      "step": 24,
+      "metrics": {
+        "accuracy": 87.4,
+        "error": 12.6,
+        "macro_f1": 88.6,
+        "average_class_accuracy": 90.0
+      },
+      "class_metrics": {
+        "aeroplane": 98.6,
+        "bicycle": 94.0,
+        "bus": 87.1,
+        "car": 73.3,
+        "horse": 98.3,
+        "knife": 96.7,
+        "motorcycle": 94.4,
+        "person": 88.2,
+        "plant": 90.4,
+        "skateboard": 93.0,
+        "train": 95.4,
+        "truck": 70.8
+      }
+    },
+    {
+      "split": "test",
+      "step": 25,
+      "metrics": {
+        "accuracy": 87.1,
+        "error": 12.9,
+        "macro_f1": 88.2,
+        "average_class_accuracy": 89.6
+      },
+      "class_metrics": {
+        "aeroplane": 98.8,
+        "bicycle": 89.9,
+        "bus": 90.1,
+        "car": 74.1,
+        "horse": 98.4,
+        "knife": 96.2,
+        "motorcycle": 95.7,
+        "person": 87.4,
+        "plant": 92.8,
+        "skateboard": 93.2,
+        "train": 95.5,
+        "truck": 63.3
+      }
+    },
+    {
+      "split": "test",
+      "step": 26,
+      "metrics": {
+        "accuracy": 87.7,
+        "error": 12.3,
+        "macro_f1": 88.5,
+        "average_class_accuracy": 90.2
+      },
+      "class_metrics": {
+        "aeroplane": 99.0,
+        "bicycle": 94.6,
+        "bus": 90.6,
+        "car": 75.4,
+        "horse": 98.1,
+        "knife": 97.6,
+        "motorcycle": 94.3,
+        "person": 82.6,
+        "plant": 92.7,
+        "skateboard": 93.2,
+        "train": 95.3,
+        "truck": 68.7
+      }
+    },
+    {
+      "split": "test",
+      "step": 27,
+      "metrics": {
+        "accuracy": 87.2,
+        "error": 12.8,
+        "macro_f1": 88.2,
+        "average_class_accuracy": 89.9
+      },
+      "class_metrics": {
+        "aeroplane": 98.7,
+        "bicycle": 95.5,
+        "bus": 88.7,
+        "car": 73.1,
+        "horse": 98.5,
+        "knife": 98.2,
+        "motorcycle": 93.2,
+        "person": 82.7,
+        "plant": 91.3,
+        "skateboard": 93.1,
+        "train": 93.4,
+        "truck": 72.7
+      }
+    },
+    {
+      "split": "test",
+      "step": 28,
+      "metrics": {
+        "accuracy": 87.2,
+        "error": 12.8,
+        "macro_f1": 88.2,
+        "average_class_accuracy": 90.0
+      },
+      "class_metrics": {
+        "aeroplane": 99.0,
+        "bicycle": 93.9,
+        "bus": 89.1,
+        "car": 72.5,
+        "horse": 98.7,
+        "knife": 98.0,
+        "motorcycle": 93.8,
+        "person": 82.5,
+        "plant": 90.4,
+        "skateboard": 94.4,
+        "train": 94.9,
+        "truck": 72.9
+      }
+    },
+    {
+      "split": "test",
+      "step": 29,
+      "metrics": {
+        "accuracy": 86.8,
+        "error": 13.2,
+        "macro_f1": 88.1,
+        "average_class_accuracy": 89.8
+      },
+      "class_metrics": {
+        "aeroplane": 98.9,
+        "bicycle": 93.1,
+        "bus": 88.8,
+        "car": 69.7,
+        "horse": 98.4,
+        "knife": 96.0,
+        "motorcycle": 94.3,
+        "person": 86.1,
+        "plant": 90.9,
+        "skateboard": 94.5,
+        "train": 96.2,
+        "truck": 70.7
+      }
+    },
+    {
+      "split": "test",
+      "step": 30,
+      "metrics": {
+        "accuracy": 87.7,
+        "error": 12.3,
+        "macro_f1": 88.5,
+        "average_class_accuracy": 90.0
+      },
+      "class_metrics": {
+        "aeroplane": 98.7,
+        "bicycle": 92.5,
+        "bus": 86.0,
+        "car": 75.0,
+        "horse": 98.1,
+        "knife": 97.5,
+        "motorcycle": 94.5,
+        "person": 78.0,
+        "plant": 92.5,
+        "skateboard": 95.9,
+        "train": 94.6,
+        "truck": 77.1
+      }
+    },
+    {
+      "split": "test",
+      "step": 31,
+      "metrics": {
+        "accuracy": 87.7,
+        "error": 12.3,
+        "macro_f1": 88.5,
+        "average_class_accuracy": 90.0
+      },
+      "class_metrics": {
+        "aeroplane": 98.7,
+        "bicycle": 92.5,
+        "bus": 86.0,
+        "car": 75.0,
+        "horse": 98.1,
+        "knife": 97.5,
+        "motorcycle": 94.5,
+        "person": 78.0,
+        "plant": 92.5,
+        "skateboard": 95.9,
+        "train": 94.6,
+        "truck": 77.1
+      }
+    }
+  ],
+  "failure_reason": null
+}

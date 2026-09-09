@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 from dabench.data import load_unida as _load_unida
 
 
@@ -13,6 +15,8 @@ def load_unida(
     source_private: int,
     target_private: int,
     format: str = "hf",
+    feature_model: str | None = None,
+    feature_cache_path: str | Path | None = None,
     source_train_batch_size: int,
     target_train_batch_size: int | None = None,
     test_batch_size: int | None = None,
@@ -23,14 +27,17 @@ def load_unida(
     pin_memory: bool | None = None,
     decode: bool = True,
 ):
-    if format != "hf":
-        raise ValueError("UniDA setting currently supports format='hf' only.")
+    if format not in {"hf", "feature"}:
+        raise ValueError("UniDA setting currently supports format='hf' or format='feature'.")
     return _load_unida(
         dataset=dataset,
         task=task,
         shared=shared,
         source_private=source_private,
         target_private=target_private,
+        format=format,
+        feature_model=feature_model,
+        feature_cache_path=feature_cache_path,
         source_batch_size=source_train_batch_size,
         target_batch_size=target_train_batch_size,
         test_batch_size=test_batch_size,

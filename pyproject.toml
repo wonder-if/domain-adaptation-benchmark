@@ -23,6 +23,13 @@ docs = [
   "mkdocs>=1.6",
   "mkdocs-material>=9.5",
 ]
+models = [
+  "safetensors>=0.4",
+  "timm>=0.9",
+  "torch>=2.0",
+  "torchvision>=0.15",
+  "transformers>=4.36",
+]
 dev = [
   "datasets>=2.18",
   "modelscope>=1.19",

@@ -1,0 +1,319 @@
+{
+  "schema_version": "1.0",
+  "record_type": "run_record",
+  "metrics_schema_version": "1.0",
+  "run_id": "office_home__uda__DAMP__RN50__Product_to_Clipart__seed1",
+  "dataset": "office-home",
+  "setting": "uda",
+  "method": "DAMP",
+  "algorithm_name": null,
+  "backbone": "RN50",
+  "source_domain": "Product",
+  "target_domain": "Clipart",
+  "seed": 1,
+  "status": "completed",
+  "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_product_to_clipart/seed_1",
+  "selected_checkpoint": "best",
+  "selection_metric": "accuracy",
+  "selection_mode": "max",
+  "start_time": null,
+  "end_time": null,
+  "config": {
+    "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_product_to_clipart/seed_1/log.txt"
+  },
+  "extra": {},
+  "final_metrics": {
+    "accuracy": 59.3,
+    "error": 40.7,
+    "macro_f1": 57.3
+  },
+  "best_metrics": {
+    "accuracy": 59.7,
+    "error": 40.3,
+    "macro_f1": 57.2
+  },
+  "final_class_metrics": {},
+  "best_class_metrics": {},
+  "eval_history": [
+    {
+      "split": "test",
+      "step": 1,
+      "metrics": {
+        "accuracy": 54.5,
+        "error": 45.5,
+        "macro_f1": 51.2
+      }
+    },
+    {
+      "split": "test",
+      "step": 2,
+      "metrics": {
+        "accuracy": 57.1,
+        "error": 42.9,
+        "macro_f1": 54.8
+      }
+    },
+    {
+      "split": "test",
+      "step": 3,
+      "metrics": {
+        "accuracy": 56.1,
+        "error": 43.9,
+        "macro_f1": 53.3
+      }
+    },
+    {
+      "split": "test",
+      "step": 4,
+      "metrics": {
+        "accuracy": 55.5,
+        "error": 44.5,
+        "macro_f1": 52.3
+      }
+    },
+    {
+      "split": "test",
+      "step": 5,
+      "metrics": {
+        "accuracy": 56.4,
+        "error": 43.6,
+        "macro_f1": 53.7
+      }
+    },
+    {
+      "split": "test",
+      "step": 6,
+      "metrics": {
+        "accuracy": 57.3,
+        "error": 42.7,
+        "macro_f1": 54.3
+      }
+    },
+    {
+      "split": "test",
+      "step": 7,
+      "metrics": {
+        "accuracy": 57.6,
+        "error": 42.4,
+        "macro_f1": 54.8
+      }
+    },
+    {
+      "split": "test",
+      "step": 8,
+      "metrics": {
+        "accuracy": 56.7,
+        "error": 43.3,
+        "macro_f1": 53.4
+      }
+    },
+    {
+      "split": "test",
+      "step": 9,
+      "metrics": {
+        "accuracy": 57.5,
+        "error": 42.5,
+        "macro_f1": 54.8
+      }
+    },
+    {
+      "split": "test",
+      "step": 10,
+      "metrics": {
+        "accuracy": 57.8,
+        "error": 42.2,
+        "macro_f1": 55.2
+      }
+    },
+    {
+      "split": "test",
+      "step": 11,
+      "metrics": {
+        "accuracy": 57.8,
+        "error": 42.2,
+        "macro_f1": 55.5
+      }
+    },
+    {
+      "split": "test",
+      "step": 12,
+      "metrics": {
+        "accuracy": 57.8,
+        "error": 42.2,
+        "macro_f1": 55.3
+      }
+    },
+    {
+      "split": "test",
+      "step": 13,
+      "metrics": {
+        "accuracy": 57.1,
+        "error": 42.9,
+        "macro_f1": 54.3
+      }
+    },
+    {
+      "split": "test",
+      "step": 14,
+      "metrics": {
+        "accuracy": 56.4,
+        "error": 43.6,
+        "macro_f1": 54.1
+      }
+    },
+    {
+      "split": "test",
+      "step": 15,
+      "metrics": {
+        "accuracy": 56.7,
+        "error": 43.3,
+        "macro_f1": 54.6
+      }
+    },
+    {
+      "split": "test",
+      "step": 16,
+      "metrics": {
+        "accuracy": 58.5,
+        "error": 41.5,
+        "macro_f1": 55.9
+      }
+    },
+    {
+      "split": "test",
+      "step": 17,
+      "metrics": {
+        "accuracy": 58.1,
+        "error": 41.9,
+        "macro_f1": 55.5
+      }
+    },
+    {
+      "split": "test",
+      "step": 18,
+      "metrics": {
+        "accuracy": 58.0,
+        "error": 42.0,
+        "macro_f1": 55.7
+      }
+    },
+    {
+      "split": "test",
+      "step": 19,
+      "metrics": {
+        "accuracy": 58.5,
+        "error": 41.5,
+        "macro_f1": 55.6
+      }
+    },
+    {
+      "split": "test",
+      "step": 20,
+      "metrics": {
+        "accuracy": 58.6,
+        "error": 41.4,
+        "macro_f1": 56.3
+      }
+    },
+    {
+      "split": "test",
+      "step": 21,
+      "metrics": {
+        "accuracy": 58.4,
+        "error": 41.6,
+        "macro_f1": 56.3
+      }
+    },
+    {
+      "split": "test",
+      "step": 22,
+      "metrics": {
+        "accuracy": 59.0,
+        "error": 41.0,
+        "macro_f1": 56.6
+      }
+    },
+    {
+      "split": "test",
+      "step": 23,
+      "metrics": {
+        "accuracy": 58.1,
+        "error": 41.9,
+        "macro_f1": 56.3
+      }
+    },
+    {
+      "split": "test",
+      "step": 24,
+      "metrics": {
+        "accuracy": 59.5,
+        "error": 40.5,
+        "macro_f1": 57.1
+      }
+    },
+    {
+      "split": "test",
+      "step": 25,
+      "metrics": {
+        "accuracy": 59.3,
+        "error": 40.7,
+        "macro_f1": 57.1
+      }
+    },
+    {
+      "split": "test",
+      "step": 26,
+      "metrics": {
+        "accuracy": 59.7,
+        "error": 40.3,
+        "macro_f1": 57.2
+      }
+    },
+    {
+      "split": "test",
+      "step": 27,
+      "metrics": {
+        "accuracy": 58.9,
+        "error": 41.1,
+        "macro_f1": 56.3
+      }
+    },
+    {
+      "split": "test",
+      "step": 28,
+      "metrics": {
+        "accuracy": 58.5,
+        "error": 41.5,
+        "macro_f1": 56.7
+      }
+    },
+    {
+      "split": "test",
+      "step": 29,
+      "metrics": {
+        "accuracy": 59.5,
+        "error": 40.5,
+        "macro_f1": 57.0
+      }
+    },
+    {
+      "split": "test",
+      "step": 30,
+      "metrics": {
+        "accuracy": 59.3,
+        "error": 40.7,
+        "macro_f1": 57.3
+      }
+    },
+    {
+      "split": "test",
+      "step": 31,
+      "metrics": {
+        "accuracy": 59.3,
+        "error": 40.7,
+        "macro_f1": 57.3
+      }
+    }
+  ],
+  "failure_reason": null
+}

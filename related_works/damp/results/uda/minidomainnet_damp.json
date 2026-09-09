@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0",
+  "view_type": "benchmark_result_view",
+  "setting": "uda",
+  "dataset": "minidomainnet",
+  "method": "DAMP",
+  "table_layout": "transfer_matrix",
+  "primary_metric": "accuracy",
+  "aggregation": {
+    "metric_source": "best",
+    "reduction": "none",
+    "num_runs": 12
+  },
+  "results": [
+    {
+      "source_domain": "clipart",
+      "target_domain": "painting",
+      "run_count": 1,
+      "metrics": {
+        "accuracy": 74.9,
+        "error": 25.1,
+        "macro_f1": 74.2
+      },
+      "run": {
+        "seed": 1,
+        "run_id": "minidomainnet__uda__DAMP__RN50__clipart_to_painting__seed1",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/miniDomainNet/DAMP/damp/0.5_1.0_clipart_to_painting/seed_1"
+      }
+    },
+    {
+      "source_domain": "clipart",
+      "target_domain": "real",
+      "run_count": 1,
+      "metrics": {
+        "accuracy": 87.0,
+        "error": 13.0,
+        "macro_f1": 86.6
+      },
+      "run": {
+        "seed": 1,
+        "run_id": "minidomainnet__uda__DAMP__RN50__clipart_to_real__seed1",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/miniDomainNet/DAMP/damp/0.5_1.0_clipart_to_real/seed_1"
+      }
+    },
+    {
+      "source_domain": "clipart",
+      "target_domain": "sketch",
+      "run_count": 1,
+      "metrics": {
+        "accuracy": 71.0,
+        "error": 29.0,
+        "macro_f1": 70.0
+      },
+      "run": {
+        "seed": 1,
+        "run_id": "minidomainnet__uda__DAMP__RN50__clipart_to_sketch__seed1",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/miniDomainNet/DAMP/damp/0.5_1.0_clipart_to_sketch/seed_1"
+      }
+    },
+    {
+      "source_domain": "painting",
+      "target_domain": "clipart",
+      "run_count": 1,
+      "metrics": {
+        "accuracy": 75.2,
+        "error": 24.8,
+        "macro_f1": 73.4
+      },
+      "run": {
+        "seed": 1,
+        "run_id": "minidomainnet__uda__DAMP__RN50__painting_to_clipart__seed1",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/miniDomainNet/DAMP/damp/0.5_1.0_painting_to_clipart/seed_1"
+      }
+    },
+    {
+      "source_domain": "painting",
+      "target_domain": "real",
+      "run_count": 1,
+      "metrics": {
+        "accuracy": 87.1,
+        "error": 12.9,
+        "macro_f1": 86.5
+      },
+      "run": {
+        "seed": 1,
+        "run_id": "minidomainnet__uda__DAMP__RN50__painting_to_real__seed1",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/miniDomainNet/DAMP/damp/0.5_1.0_painting_to_real/seed_1"
+      }
+    },
+    {
+      "source_domain": "painting",
+      "target_domain": "sketch",
+      "run_count": 1,
+      "metrics": {
+        "accuracy": 69.4,
+        "error": 30.6,
+        "macro_f1": 68.2
+      },
+      "run": {
+        "seed": 1,
+        "run_id": "minidomainnet__uda__DAMP__RN50__painting_to_sketch__seed1",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/miniDomainNet/DAMP/damp/0.5_1.0_painting_to_sketch/seed_1"
+      }
+    },
+    {
+      "source_domain": "real",
+      "target_domain": "clipart",
+      "run_count": 1,
+      "metrics": {
+        "accuracy": 76.7,
+        "error": 23.3,
+        "macro_f1": 75.6
+      },
+      "run": {
+        "seed": 1,
+        "run_id": "minidomainnet__uda__DAMP__RN50__real_to_clipart__seed1",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/miniDomainNet/DAMP/damp/0.5_1.0_real_to_clipart/seed_1"
+      }
+    },
+    {
+      "source_domain": "real",
+      "target_domain": "painting",
+      "run_count": 1,
+      "metrics": {
+        "accuracy": 74.8,
+        "error": 25.2,
+        "macro_f1": 74.0
+      },
+      "run": {
+        "seed": 1,
+        "run_id": "minidomainnet__uda__DAMP__RN50__real_to_painting__seed1",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/miniDomainNet/DAMP/damp/0.5_1.0_real_to_painting/seed_1"
+      }
+    },
+    {
+      "source_domain": "real",
+      "target_domain": "sketch",
+      "run_count": 1,
+      "metrics": {
+        "accuracy": 69.5,
+        "error": 30.5,
+        "macro_f1": 68.2
+      },
+      "run": {
+        "seed": 1,
+        "run_id": "minidomainnet__uda__DAMP__RN50__real_to_sketch__seed1",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/miniDomainNet/DAMP/damp/0.5_1.0_real_to_sketch/seed_1"
+      }
+    },
+    {
+      "source_domain": "sketch",
+      "target_domain": "clipart",
+      "run_count": 1,
+      "metrics": {
+        "accuracy": 76.5,
+        "error": 23.5,
+        "macro_f1": 75.1
+      },
+      "run": {
+        "seed": 1,
+        "run_id": "minidomainnet__uda__DAMP__RN50__sketch_to_clipart__seed1",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/miniDomainNet/DAMP/damp/0.5_1.0_sketch_to_clipart/seed_1"
+      }
+    },
+    {
+      "source_domain": "sketch",
+      "target_domain": "painting",
+      "run_count": 1,
+      "metrics": {
+        "accuracy": 74.8,
+        "error": 25.2,
+        "macro_f1": 73.8
+      },
+      "run": {
+        "seed": 1,
+        "run_id": "minidomainnet__uda__DAMP__RN50__sketch_to_painting__seed1",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/miniDomainNet/DAMP/damp/0.5_1.0_sketch_to_painting/seed_1"
+      }
+    },
+    {
+      "source_domain": "sketch",
+      "target_domain": "real",
+      "run_count": 1,
+      "metrics": {
+        "accuracy": 87.5,
+        "error": 12.5,
+        "macro_f1": 86.7
+      },
+      "run": {
+        "seed": 1,
+        "run_id": "minidomainnet__uda__DAMP__RN50__sketch_to_real__seed1",
+        "output_dir": "related_works/damp/codes/damp-dabench/output/miniDomainNet/DAMP/damp/0.5_1.0_sketch_to_real/seed_1"
+      }
+    }
+  ],
+  "backbone": "RN50",
+  "display_name": "minidomainnet (RN50)"
+}

@@ -77,7 +77,7 @@ payload = load_unida(
 )
 ```
 
-UniDA 目前只支持 `format="hf"`，返回值也不是 3-tuple，而是一个字典：
+UniDA 支持 `format="hf"` 和 `format="feature"`，返回值也不是 3-tuple，而是一个字典：
 
 - `source_train_dataset`
 - `target_train_dataset`
@@ -94,6 +94,21 @@ UniDA 目前只支持 `format="hf"`，返回值也不是 3-tuple，而是一个�
 - label 到 classname 的映射
 - 各 split 对应的 classnames
 - source / target 侧的标签计数摘要
+
+如果要用缓存特征运行 UniDA，传入 `format="feature"` 和生成缓存时使用的 `feature_model`：
+
+```python
+payload = load_unida(
+    dataset="office-home",
+    task="AR",
+    shared=10,
+    source_private=5,
+    target_private=50,
+    format="feature",
+    feature_model="clip-vit-base-patch16",
+    source_train_batch_size=32,
+)
+```
 
 ### 当前内置 UniDA 任务族
 

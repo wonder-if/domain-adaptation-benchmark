@@ -15,6 +15,8 @@ nav:
   - Home: index.md
   - Datasets:
       - Overview: data/index.md
+  - Models:
+      - Overview: model/index.md
   - Settings: setting/index.md
   - Suites: suite/index.md
   - Results:
@@ -25,6 +27,8 @@ nav:
       - 首页: zh/index.md
       - 数据集:
           - 概览: zh/data/index.md
+      - 模型:
+          - 概览: zh/model/index.md
       - 场景: zh/setting/index.md
       - 套件: zh/suite/index.md
       - 结果:

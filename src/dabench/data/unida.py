@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 
 from dabench.data.dataset import load_view
@@ -225,8 +226,14 @@ def load_unida_views(
     shared: int,
     source_private: int,
     target_private: int,
+    format: str = "hf",
+    feature_model: str | None = None,
+    feature_cache_path: str | Path | None = None,
     decode: bool = True,
 ):
+    if format not in {"hf", "feature"}:
+        raise ValueError("UniDA views currently support format='hf' or format='feature'.")
+
     task_dataset = _normalize_task_dataset_name(dataset)
     task_source, task_target = get_task(task_dataset, task)
     class_split = make_class_split(task_dataset, shared, source_private, target_private)
@@ -241,22 +248,28 @@ def load_unida_views(
         task_spec.dataset,
         domain=task_spec.source_view["domain"],
         split=task_spec.source_view["split"],
-        format="hf",
+        format=format,
         decode=decode,
+        feature_model=feature_model,
+        feature_cache_path=feature_cache_path,
     )
     target_full = load_view(
         task_spec.dataset,
         domain=task_spec.target_view["domain"],
         split=task_spec.target_view["split"],
-        format="hf",
+        format=format,
         decode=decode,
+        feature_model=feature_model,
+        feature_cache_path=feature_cache_path,
     )
     eval_full = load_view(
         task_spec.dataset,
         domain=task_spec.eval_view["domain"],
         split=task_spec.eval_view["split"],
-        format="hf",
+        format=format,
         decode=decode,
+        feature_model=feature_model,
+        feature_cache_path=feature_cache_path,
     )
 
     source_labels = class_split["shared"] + class_split["source_private"]
@@ -302,6 +315,9 @@ def load_unida(
     shared: int,
     source_private: int,
     target_private: int,
+    format: str = "hf",
+    feature_model: str | None = None,
+    feature_cache_path: str | Path | None = None,
     source_batch_size: int,
     target_batch_size: int | None = None,
     test_batch_size: int | None = None,
@@ -318,6 +334,9 @@ def load_unida(
         shared=shared,
         source_private=source_private,
         target_private=target_private,
+        format=format,
+        feature_model=feature_model,
+        feature_cache_path=feature_cache_path,
         decode=decode,
     )
     return {

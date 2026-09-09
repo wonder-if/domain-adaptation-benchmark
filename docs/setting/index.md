@@ -83,7 +83,7 @@ payload = load_unida(
 )
 ```
 
-UniDA currently supports `format="hf"` only and returns a dictionary instead of a 3-tuple:
+UniDA supports `format="hf"` and `format="feature"`, and returns a dictionary instead of a 3-tuple:
 
 - `source_train_dataset`
 - `target_train_dataset`
@@ -100,6 +100,22 @@ The `metadata` field includes:
 - label-to-classname mapping
 - per-split classnames
 - source/target label count summaries
+
+For cached feature experiments, pass `format="feature"` and the same `feature_model`
+used to prepare the cache:
+
+```python
+payload = load_unida(
+    dataset="office-home",
+    task="AR",
+    shared=10,
+    source_private=5,
+    target_private=50,
+    format="feature",
+    feature_model="clip-vit-base-patch16",
+    source_train_batch_size=32,
+)
+```
 
 ### Supported UniDA task families
 

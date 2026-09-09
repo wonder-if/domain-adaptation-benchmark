@@ -1,39 +1,48 @@
 {
   "schema_version": "1.0",
+  "view_type": "benchmark_result_view",
   "setting": "uda",
   "dataset": "visda-2017",
   "method": "DAMP",
   "table_layout": "per_class",
-  "primary_metric": "accuracy",
+  "primary_metric": "average_class_accuracy",
+  "aggregation": {
+    "metric_source": "best",
+    "reduction": "none",
+    "num_runs": 1
+  },
   "results": [
     {
       "source_domain": "synthetic",
       "target_domain": "real",
+      "run_count": 1,
       "metrics": {
-        "accuracy": 87.7,
-        "error": 12.3,
-        "macro_f1": 88.5,
-        "average_class_accuracy": 90.0
+        "accuracy": 87.9,
+        "error": 12.1,
+        "macro_f1": 88.8,
+        "average_class_accuracy": 90.3
       },
       "class_metrics": {
-        "aeroplane": 98.7,
-        "bicycle": 92.5,
-        "bus": 86.0,
-        "car": 75.0,
-        "horse": 98.1,
-        "knife": 97.5,
-        "motorcycle": 94.5,
-        "person": 78.0,
-        "plant": 92.5,
-        "skateboard": 95.9,
-        "train": 94.6,
-        "truck": 77.1
+        "aeroplane": 99.1,
+        "bicycle": 92.8,
+        "bus": 91.8,
+        "car": 74.8,
+        "horse": 98.6,
+        "knife": 96.4,
+        "motorcycle": 95.0,
+        "person": 82.7,
+        "plant": 93.0,
+        "skateboard": 94.9,
+        "train": 95.4,
+        "truck": 69.6
       },
       "run": {
         "seed": 1,
-        "log_path": "related_works/damp/codes/damp-dabench/output/visda17/DAMP/damp/0.5_2.0_synthetic_to_real/seed_1/log.txt",
+        "run_id": "visda_2017__uda__DAMP__ViT_B_16__synthetic_to_real__seed1",
         "output_dir": "related_works/damp/codes/damp-dabench/output/visda17/DAMP/damp/0.5_2.0_synthetic_to_real/seed_1"
       }
     }
-  ]
+  ],
+  "backbone": "ViT-B/16",
+  "display_name": "visda-2017 (ViT-B/16)"
 }

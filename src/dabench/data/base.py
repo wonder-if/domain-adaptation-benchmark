@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Literal, Sequence, TypedDict
 
-DatasetFormat = Literal["hf", "torch"]
+DatasetFormat = Literal["hf", "torch", "feature"]
 
 
 class IndexItem(TypedDict, total=False):

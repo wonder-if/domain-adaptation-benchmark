@@ -27,7 +27,83 @@ office_home = load_view("office-home", domain="Art", format="hf")
 office31 = load_view("office-31", domain="amazon", format="torch")
 visda = load_view("visda-2017", domain="synthetic", split="train", format="hf")
 minidomainnet = load_view("minidomainnet", domain="clipart", split="train", format="hf")
+camelyon17 = load_view("camelyon17", split="ood_val", format="hf")
+iwildcam = load_view("iwildcam", split="train", format="hf")
 ```
+
+Load cached CLIP features explicitly when you want to skip repeated image-model inference:
+
+```python
+from dabench.data import list_feature_caches, load_feature_decode_errors, load_text_features, load_view
+
+features = load_view(
+    "office-31",
+    domain="amazon",
+    format="feature",
+    feature_model="clip-vit-base-patch16",
+)
+text_features = load_text_features(
+    "office-31",
+    domain="amazon",
+    feature_model="clip-vit-base-patch16",
+    prompt="a photo of a {CLASS}.",
+)
+
+wilds_features = load_view(
+    "iwildcam",
+    split="train",
+    format="feature",
+    feature_model="clip-vit-l-14-datacomp.xl-s13b-b90k",
+)
+mini_features = load_view(
+    "minidomainnet",
+    domain="clipart",
+    split="train",
+    format="feature",
+    feature_model="clip-vit-base-patch16",
+)
+print(list_feature_caches("iwildcam", include_stats=True))
+print(load_feature_decode_errors("iwildcam", split="train", feature_model="clip-vit-base-patch16")[:1])
+```
+
+The current feature cache layout covers `office-31`, `office-home`, `domainnet`,
+`minidomainnet`, `camelyon17`, and `iwildcam`. `minidomainnet` is a derived view:
+it reads image and text features from the full `domainnet` cache, then filters
+image features with the configured mini split files. Labels and text features are
+remapped to the prepared DomainNet class order used by `load_view`.
+
+For WILDS datasets, cached features use the split name where domain-based datasets
+use the domain name. Generate them through dabench loaders with:
+
+```bash
+PYTHONPATH=src python scripts/extract_wilds_clip_features.py \
+  --datasets camelyon17 iwildcam \
+  --models clip-vit-base-patch16 clip-vit-l-14-datacomp.xl-s13b-b90k
+```
+
+iWildCam labels and class names are joined from the configured WILDS metadata
+JSON files in the dabench path config; the prepared Arrow directory itself only
+stores image rows. A small number of iWildCam JPEGs are not decodable; feature
+extraction skips those rows and saves their metadata in `decode_errors.json`.
+
+Load local pretrained models from the configured model root when you need a backbone:
+
+```bash
+pip install -e ".[models]"
+```
+
+```python
+from dabench.models import load_model
+
+bundle = load_model("clip-vit-base-patch16")
+model = bundle.model
+processor = bundle.processor
+tokenizer = bundle.tokenizer
+```
+
+The model layer only resolves and instantiates local pretrained models. It does
+not include adaptation algorithms, trainable prompts, LoRA modules, or training
+heads.
 
 Download data explicitly when needed:
 
@@ -44,7 +120,7 @@ download_dataset(
 
 For Hugging Face-backed datasets, `source="mirror"` uses `https://hf-mirror.com`; `source="hf"` uses the official Hugging Face endpoint.
 
-`minidomainnet` reuses prepared `domainnet` data and filters it using `splits_mini/*.txt`. Configure both the prepared dataset `path` and the `split_dir` in `src/dabench/config/paths.json` (or your overridden dabench path config).
+`minidomainnet` reuses prepared `domainnet` data and filters it using configured split files. Configure both the prepared dataset `path` and the `split_dir` in `src/dabench/config/paths.json` (or your overridden dabench path config).
 
 Build and execute UDA suites:
 
@@ -54,6 +130,17 @@ from dabench.suite import build_suites, load_suite_item
 suite = build_suites(datasets="domainnet", setting="uda", format="hf")[0]
 item = suite["settings"][0]
 train_loader, val_loader, test_loader = load_suite_item(item)
+```
+
+For cached feature experiments, pass `format="feature"` and provide the cached feature model through `dataset_defaults`:
+
+```python
+suite = build_suites(
+    datasets="office-31",
+    setting="uda",
+    format="feature",
+    dataset_defaults={"feature_model": "clip-vit-base-patch16"},
+)[0]
 ```
 
 ## Supported Datasets

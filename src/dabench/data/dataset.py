@@ -12,6 +12,8 @@ from dabench.data.common import (
     load_prepared_dataset_dict,
     load_visda_dataset_dict,
 )
+from dabench.data.feature_cache import load_feature_view
+from dabench.data.iwildcam import load_iwildcam_dataset_dict
 from dabench.data.minidomainnet import load_mini_domainnet_dataset_dict
 from dabench.storage.manifest import get_manifest
 from dabench.storage.paths import resolve_dataset_path
@@ -63,15 +65,36 @@ def load_view(
     split: str | None = None,
     decode: bool = True,
     format: str = "hf",
+    feature_model: str | None = None,
+    feature_cache_path: str | Path | None = None,
 ):
-    if domain is None:
-        raise ValueError("load_view requires an explicit `domain`.")
-
     manifest = get_manifest(name)
-    actual_path = resolve_dataset_path(name)
     layout = manifest.get("prepared", {}).get("layout")
+
+    if format == "feature":
+        cache_domain = domain if domain is not None else split
+        if cache_domain is None:
+            raise ValueError("load_view(format='feature') requires `domain`, or `split` for split-only datasets.")
+        if feature_model is None:
+            raise ValueError("load_view(format='feature') requires `feature_model`.")
+        return load_feature_view(
+            name,
+            domain=cache_domain,
+            split=split,
+            feature_model=feature_model,
+            feature_cache_path=feature_cache_path,
+        )
+
+    if domain is None and _requires_domain(manifest, layout):
+        raise ValueError("load_view requires an explicit `domain` for this dataset.")
+
+    actual_path = resolve_dataset_path(name)
     if layout == "hf_prepared":
-        dataset_dict = load_hf_dataset(actual_path, decode=decode)
+        if manifest["id"] == "iwildcam":
+            selected_splits = (split,) if split is not None else None
+            dataset_dict = load_iwildcam_dataset_dict(actual_path, decode=decode, splits=selected_splits)
+        else:
+            dataset_dict = load_hf_dataset(actual_path, decode=decode)
         dataset = _select_split(dataset_dict, split)
     elif layout == "domainnet_split_files":
         dataset_dict = load_mini_domainnet_dataset_dict(actual_path, decode=decode, dataset_name=manifest["id"])
@@ -97,12 +120,18 @@ def load_view(
         return dataset
     if format == "torch":
         return build_torch_dataset(dataset, domain_column="domain", path_column="image_path")
-    raise ValueError("format must be one of: hf, torch")
+    raise ValueError("format must be one of: hf, torch, feature")
+
+
+def _requires_domain(manifest: dict[str, Any], layout: str | None) -> bool:
+    prepared = manifest.get("prepared", {})
+    return bool(prepared.get("domains")) or layout in {"office31_images", "visda2017_official"}
 
 
 __all__ = [
     "DomainDatasetView",
     "build_torch_dataset",
+    "load_feature_view",
     "load_hf_dataset",
     "load_view",
 ]

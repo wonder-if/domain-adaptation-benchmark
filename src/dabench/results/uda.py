@@ -102,20 +102,36 @@ def _render_transfer_matrix(payload: Mapping[str, object]) -> str:
         for item in results
     }
     domains = sorted({*{src for src, _ in pairs}, *{tgt for _, tgt in pairs}}, key=lambda x: _domain_code(dataset, x))
-    header = ["Tgt\\Src", *(_domain_code(dataset, domain) for domain in domains)]
+    header = ["Tgt\\Src", *(_domain_code(dataset, domain) for domain in domains), "Avg"]
     lines = [
         f"| {' | '.join(header)} |",
         f"| {' | '.join(['---'] * len(header))} |",
     ]
     for target in domains:
         row = [_domain_code(dataset, target)]
+        row_values = []
         for source in domains:
             if source == target:
                 row.append("-")
                 continue
             value = pairs.get((source, target))
+            if value is not None:
+                row_values.append(value)
             row.append(_format_score(value) if value is not None else "")
+        row.append(_format_score(sum(row_values) / len(row_values)) if row_values else "")
         lines.append(f"| {' | '.join(row)} |")
+    avg_row = ["Avg"]
+    all_values = []
+    for source in domains:
+        column_values = [
+            pairs[(source, target)]
+            for target in domains
+            if source != target and (source, target) in pairs
+        ]
+        all_values.extend(column_values)
+        avg_row.append(_format_score(sum(column_values) / len(column_values)) if column_values else "")
+    avg_row.append(_format_score(sum(all_values) / len(all_values)) if all_values else "")
+    lines.append(f"| {' | '.join(avg_row)} |")
     return "\n".join(lines)
 
 

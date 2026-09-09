@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Sequence
+from pathlib import Path
 from typing import Any, Literal
 
 from dabench.data import build_loader, load_view
@@ -21,16 +22,36 @@ def _target_eval_specs(dataset: str, domain: str | int) -> tuple[dict[str, str |
     return views["val"], views["test"]
 
 
-def _load_hf_view(dataset: str, domain: str | int, split: str | None, *, decode: bool):
-    return load_view(dataset, domain=domain, split=split, format="hf", decode=decode)
+def _load_base_view(
+    dataset: str,
+    domain: str | int,
+    split: str | None,
+    *,
+    format: Literal["hf", "torch", "feature"],
+    decode: bool,
+    feature_model: str | None,
+    feature_cache_path: str | Path | None,
+):
+    load_format = "feature" if format == "feature" else "hf"
+    return load_view(
+        dataset,
+        domain=domain,
+        split=split,
+        format=load_format,
+        decode=decode,
+        feature_model=feature_model,
+        feature_cache_path=feature_cache_path,
+    )
 
 
-def _maybe_to_torch(dataset, *, format: Literal["hf", "torch"]):
+def _maybe_to_torch(dataset, *, format: Literal["hf", "torch", "feature"]):
     if format == "hf":
+        return dataset
+    if format == "feature":
         return dataset
     if format == "torch":
         return build_torch_dataset(dataset, domain_column="domain", path_column="image_path")
-    raise ValueError("format must be one of: hf, torch")
+    raise ValueError("format must be one of: hf, torch, feature")
 
 
 def load_dg(
@@ -38,7 +59,9 @@ def load_dg(
     dataset: str,
     source_domains: Sequence[str | int],
     target_domain: str | int,
-    format: Literal["hf", "torch"] = "hf",
+    format: Literal["hf", "torch", "feature"] = "hf",
+    feature_model: str | None = None,
+    feature_cache_path: str | Path | None = None,
     source_train_batch_size: int,
     val_batch_size: int | None = None,
     test_batch_size: int | None = None,
@@ -59,14 +82,38 @@ def load_dg(
     _, _, _, _, concatenate_datasets = require_datasets_for_loading()
 
     source_views = [
-        _load_hf_view(dataset, domain, _source_view_spec(dataset, domain)["split"], decode=decode)
+        _load_base_view(
+            dataset,
+            domain,
+            _source_view_spec(dataset, domain)["split"],
+            format=format,
+            decode=decode,
+            feature_model=feature_model,
+            feature_cache_path=feature_cache_path,
+        )
         for domain in source_domains
     ]
     source_dataset = source_views[0] if len(source_views) == 1 else concatenate_datasets(source_views)
 
     val_spec, test_spec = _target_eval_specs(dataset, target_domain)
-    val_dataset = _load_hf_view(dataset, target_domain, val_spec["split"], decode=decode)
-    test_dataset = _load_hf_view(dataset, target_domain, test_spec["split"], decode=decode)
+    val_dataset = _load_base_view(
+        dataset,
+        target_domain,
+        val_spec["split"],
+        format=format,
+        decode=decode,
+        feature_model=feature_model,
+        feature_cache_path=feature_cache_path,
+    )
+    test_dataset = _load_base_view(
+        dataset,
+        target_domain,
+        test_spec["split"],
+        format=format,
+        decode=decode,
+        feature_model=feature_model,
+        feature_cache_path=feature_cache_path,
+    )
 
     source_dataset = _maybe_to_torch(source_dataset, format=format)
     val_dataset = _maybe_to_torch(val_dataset, format=format)

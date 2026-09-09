@@ -1,14 +1,21 @@
 {
   "schema_version": "1.0",
+  "view_type": "benchmark_result_view",
   "setting": "uda",
   "dataset": "office-home",
   "method": "DAMP",
   "table_layout": "transfer_pairs",
   "primary_metric": "accuracy",
+  "aggregation": {
+    "metric_source": "best",
+    "reduction": "none",
+    "num_runs": 12
+  },
   "results": [
     {
       "source_domain": "Art",
       "target_domain": "Clipart",
+      "run_count": 1,
       "metrics": {
         "accuracy": 59.1,
         "error": 40.9,
@@ -16,163 +23,176 @@
       },
       "run": {
         "seed": 1,
-        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_art_to_clipart/seed_1/log.txt-2026-05-08-20-03-44",
+        "run_id": "office_home__uda__DAMP__RN50__Art_to_Clipart__seed1",
         "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_art_to_clipart/seed_1"
       }
     },
     {
       "source_domain": "Art",
       "target_domain": "Product",
+      "run_count": 1,
       "metrics": {
-        "accuracy": 87.9,
-        "error": 12.1,
-        "macro_f1": 86.9
+        "accuracy": 88.7,
+        "error": 11.3,
+        "macro_f1": 87.7
       },
       "run": {
         "seed": 1,
-        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_art_to_product/seed_1/log.txt",
+        "run_id": "office_home__uda__DAMP__RN50__Art_to_Product__seed1",
         "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_art_to_product/seed_1"
       }
     },
     {
       "source_domain": "Art",
       "target_domain": "Real World",
+      "run_count": 1,
       "metrics": {
-        "accuracy": 85.8,
-        "error": 14.2,
-        "macro_f1": 84.1
+        "accuracy": 86.3,
+        "error": 13.7,
+        "macro_f1": 84.7
       },
       "run": {
         "seed": 1,
-        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_art_to_real_world/seed_1/log.txt",
+        "run_id": "office_home__uda__DAMP__RN50__Art_to_Real_World__seed1",
         "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_art_to_real_world/seed_1"
       }
     },
     {
       "source_domain": "Clipart",
       "target_domain": "Art",
+      "run_count": 1,
       "metrics": {
-        "accuracy": 74.2,
-        "error": 25.8,
-        "macro_f1": 70.2
+        "accuracy": 76.6,
+        "error": 23.4,
+        "macro_f1": 72.4
       },
       "run": {
         "seed": 1,
-        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_clipart_to_art/seed_1/log.txt",
+        "run_id": "office_home__uda__DAMP__RN50__Clipart_to_Art__seed1",
         "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_clipart_to_art/seed_1"
       }
     },
     {
       "source_domain": "Clipart",
       "target_domain": "Product",
+      "run_count": 1,
       "metrics": {
-        "accuracy": 88.2,
-        "error": 11.8,
-        "macro_f1": 87.3
+        "accuracy": 88.7,
+        "error": 11.3,
+        "macro_f1": 87.8
       },
       "run": {
         "seed": 1,
-        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_clipart_to_product/seed_1/log.txt",
+        "run_id": "office_home__uda__DAMP__RN50__Clipart_to_Product__seed1",
         "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_clipart_to_product/seed_1"
       }
     },
     {
       "source_domain": "Clipart",
       "target_domain": "Real World",
+      "run_count": 1,
       "metrics": {
-        "accuracy": 85.6,
-        "error": 14.4,
-        "macro_f1": 83.9
+        "accuracy": 86.5,
+        "error": 13.5,
+        "macro_f1": 85.1
       },
       "run": {
         "seed": 1,
-        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_clipart_to_real_world/seed_1/log.txt",
+        "run_id": "office_home__uda__DAMP__RN50__Clipart_to_Real_World__seed1",
         "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_clipart_to_real_world/seed_1"
       }
     },
     {
       "source_domain": "Product",
       "target_domain": "Art",
+      "run_count": 1,
       "metrics": {
-        "accuracy": 74.7,
-        "error": 25.3,
-        "macro_f1": 70.0
+        "accuracy": 76.6,
+        "error": 23.4,
+        "macro_f1": 72.6
       },
       "run": {
         "seed": 1,
-        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_product_to_art/seed_1/log.txt-2026-05-08-20-03-43",
+        "run_id": "office_home__uda__DAMP__RN50__Product_to_Art__seed1",
         "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_product_to_art/seed_1"
       }
     },
     {
       "source_domain": "Product",
       "target_domain": "Clipart",
+      "run_count": 1,
       "metrics": {
-        "accuracy": 59.3,
-        "error": 40.7,
-        "macro_f1": 57.3
+        "accuracy": 59.7,
+        "error": 40.3,
+        "macro_f1": 57.2
       },
       "run": {
         "seed": 1,
-        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_product_to_clipart/seed_1/log.txt",
+        "run_id": "office_home__uda__DAMP__RN50__Product_to_Clipart__seed1",
         "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_product_to_clipart/seed_1"
       }
     },
     {
       "source_domain": "Product",
       "target_domain": "Real World",
+      "run_count": 1,
       "metrics": {
-        "accuracy": 86.1,
-        "error": 13.9,
-        "macro_f1": 84.6
+        "accuracy": 87.3,
+        "error": 12.7,
+        "macro_f1": 85.8
       },
       "run": {
         "seed": 1,
-        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_product_to_real_world/seed_1/log.txt",
+        "run_id": "office_home__uda__DAMP__RN50__Product_to_Real_World__seed1",
         "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_product_to_real_world/seed_1"
       }
     },
     {
       "source_domain": "Real World",
       "target_domain": "Art",
+      "run_count": 1,
       "metrics": {
-        "accuracy": 75.9,
-        "error": 24.1,
-        "macro_f1": 71.6
+        "accuracy": 77.5,
+        "error": 22.5,
+        "macro_f1": 73.1
       },
       "run": {
         "seed": 1,
-        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_real_world_to_art/seed_1/log.txt",
+        "run_id": "office_home__uda__DAMP__RN50__Real_World_to_Art__seed1",
         "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_real_world_to_art/seed_1"
       }
     },
     {
       "source_domain": "Real World",
       "target_domain": "Clipart",
+      "run_count": 1,
       "metrics": {
-        "accuracy": 60.2,
-        "error": 39.8,
-        "macro_f1": 58.7
+        "accuracy": 61.0,
+        "error": 39.0,
+        "macro_f1": 59.4
       },
       "run": {
         "seed": 1,
-        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_real_world_to_clipart/seed_1/log.txt",
+        "run_id": "office_home__uda__DAMP__RN50__Real_World_to_Clipart__seed1",
         "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_real_world_to_clipart/seed_1"
       }
     },
     {
       "source_domain": "Real World",
       "target_domain": "Product",
+      "run_count": 1,
       "metrics": {
-        "accuracy": 89.1,
-        "error": 10.9,
-        "macro_f1": 88.5
+        "accuracy": 89.8,
+        "error": 10.2,
+        "macro_f1": 89.1
       },
       "run": {
         "seed": 1,
-        "log_path": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_real_world_to_product/seed_1/log.txt",
+        "run_id": "office_home__uda__DAMP__RN50__Real_World_to_Product__seed1",
         "output_dir": "related_works/damp/codes/damp-dabench/output/office_home/DAMP/damp/0.6_1.0_real_world_to_product/seed_1"
       }
     }
-  ]
+  ],
+  "backbone": "RN50",
+  "display_name": "office-home (RN50)"
 }

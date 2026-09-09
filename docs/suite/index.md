@@ -99,5 +99,17 @@ The suite layer is the easiest way to run repeatable benchmark experiments:
 
 - choose dataset(s)
 - choose `setting="uda"`, `setting="dg"`, or `setting="unida"`
-- choose `format="hf"` or `format="torch"`
+- choose `format="hf"`, `format="torch"`, or `format="feature"`
 - iterate over `suite["settings"]`
+
+When using cached features, pass the feature model through `dataset_defaults` so every
+suite item carries the same cache selection:
+
+```python
+suite = build_suites(
+    datasets="office-31",
+    setting="uda",
+    format="feature",
+    dataset_defaults={"feature_model": "clip-vit-base-patch16"},
+)[0]
+```

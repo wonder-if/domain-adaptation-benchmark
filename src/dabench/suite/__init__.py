@@ -163,6 +163,8 @@ def build_suites(
     datasets: str | Iterable[str] | None = None,
     setting: str = "uda",
     format: str = "hf",
+    dataset_defaults: dict[str, Any] | None = None,
+    setting_defaults: dict[str, Any] | None = None,
 ) -> list[dict[str, Any]]:
     normalized_setting = _normalize_setting_name(setting)
     try:
@@ -184,7 +186,11 @@ def build_suites(
                 suite_id=spec["suite_id"],
                 name=spec["name"],
                 setting=normalized_setting,
-                settings=spec["builder"](format=format),
+                settings=spec["builder"](
+                    format=format,
+                    dataset_defaults=dataset_defaults,
+                    setting_defaults=setting_defaults,
+                ),
                 domains=spec["domains"],
             )
         )
@@ -208,12 +214,40 @@ def load_suite_item(item: dict[str, Any]):
     raise ValueError(f"Unsupported suite setting: {setting!r}. Available settings: {available}")
 
 
-def list_suites(*, datasets: str | Iterable[str] | None = None, setting: str = "uda", format: str = "hf") -> list[dict[str, Any]]:
-    return build_suites(datasets=datasets, setting=setting, format=format)
+def list_suites(
+    *,
+    datasets: str | Iterable[str] | None = None,
+    setting: str = "uda",
+    format: str = "hf",
+    dataset_defaults: dict[str, Any] | None = None,
+    setting_defaults: dict[str, Any] | None = None,
+) -> list[dict[str, Any]]:
+    return build_suites(
+        datasets=datasets,
+        setting=setting,
+        format=format,
+        dataset_defaults=dataset_defaults,
+        setting_defaults=setting_defaults,
+    )
 
 
-def get_suite(suite_id: str, *, setting: str = "uda", format: str = "hf") -> dict[str, Any]:
-    suites = {suite["suite_id"]: suite for suite in build_suites(setting=setting, format=format)}
+def get_suite(
+    suite_id: str,
+    *,
+    setting: str = "uda",
+    format: str = "hf",
+    dataset_defaults: dict[str, Any] | None = None,
+    setting_defaults: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    suites = {
+        suite["suite_id"]: suite
+        for suite in build_suites(
+            setting=setting,
+            format=format,
+            dataset_defaults=dataset_defaults,
+            setting_defaults=setting_defaults,
+        )
+    }
     try:
         return suites[suite_id]
     except KeyError as exc:

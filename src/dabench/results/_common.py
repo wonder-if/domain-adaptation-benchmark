@@ -11,6 +11,8 @@ DOMAIN_ALIASES = {
     "office_home": "office-home",
     "officehome": "office-home",
     "domainnet": "domainnet",
+    "minidomainnet": "minidomainnet",
+    "mini-domainnet": "minidomainnet",
     "visda-2017": "visda-2017",
     "visda17": "visda-2017",
     "visda2017": "visda-2017",
@@ -20,6 +22,7 @@ TABLE_LAYOUTS = {
     "office-31": "transfer_pairs",
     "office-home": "transfer_pairs",
     "domainnet": "transfer_matrix",
+    "minidomainnet": "transfer_matrix",
     "visda-2017": "per_class",
 }
 
@@ -41,6 +44,12 @@ DOMAIN_LABELS = {
         "infograph": "Inf",
         "painting": "Pnt",
         "quickdraw": "Qdr",
+        "real": "Rel",
+        "sketch": "Skt",
+    },
+    "minidomainnet": {
+        "clipart": "Clp",
+        "painting": "Pnt",
         "real": "Rel",
         "sketch": "Skt",
     },

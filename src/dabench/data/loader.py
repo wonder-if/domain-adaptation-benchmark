@@ -41,7 +41,30 @@ class _TransformedDataset:
         return sample
 
 
+def default_feature_collator(batch: list[dict[str, Any]]) -> dict[str, Any]:
+    torch, _, _ = require_torch_for_loading()
+    first = batch[0]
+    if "image_features" not in first:
+        raise KeyError("Feature batches must contain an `image_features` field.")
+
+    output: dict[str, Any] = {
+        "image_features": torch.stack([torch.as_tensor(item["image_features"], dtype=torch.float32) for item in batch])
+    }
+
+    label_key = "labels" if "labels" in first else "label" if "label" in first else None
+    if label_key is not None:
+        output["labels"] = torch.tensor([item[label_key] for item in batch], dtype=torch.long)
+    if "domain" in first:
+        output["domain"] = [item["domain"] for item in batch]
+    if "index" in first:
+        output["index"] = torch.tensor([item["index"] for item in batch], dtype=torch.long)
+    return output
+
+
 def default_collator(batch: list[dict[str, Any]]) -> dict[str, Any]:
+    if "image_features" in batch[0]:
+        return default_feature_collator(batch)
+
     torch, _, _ = require_torch_for_loading()
     first = batch[0]
     images = [item["pixel_values"] if "pixel_values" in item else item["image"] for item in batch]
@@ -51,6 +74,16 @@ def default_collator(batch: list[dict[str, Any]]) -> dict[str, Any]:
     if label_key is not None:
         output["labels"] = torch.tensor([item[label_key] for item in batch], dtype=torch.long)
     return output
+
+
+def _has_feature_column(dataset) -> bool:
+    column_names = getattr(dataset, "column_names", None)
+    if column_names is not None:
+        return "image_features" in column_names
+    wrapped = getattr(dataset, "dataset", None)
+    if wrapped is not None and wrapped is not dataset:
+        return _has_feature_column(wrapped)
+    return False
 
 
 def build_loader(
@@ -69,7 +102,9 @@ def build_loader(
     if mode not in {"train", "test"}:
         raise ValueError("mode must be one of: train, test")
     resolved_transform = transform
-    if resolved_transform is None:
+    if _has_feature_column(dataset):
+        resolved_transform = None
+    elif resolved_transform is None:
         resolved_transform = build_train_transform() if mode == "train" else build_test_transform()
     wrapped = _TransformedDataset(dataset, transform=resolved_transform)
     resolved_shuffle = (mode == "train") if shuffle is None else shuffle
@@ -153,6 +188,7 @@ def make_paired_forever_loader(
 
 __all__ = [
     "build_loader",
+    "default_feature_collator",
     "default_collator",
     "make_paired_forever_loader",
 ]

@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "view_type": "benchmark_result_view",
+  "setting": "unida",
+  "dataset": "visda-2017",
+  "method": "TASC",
+  "backbone": "CLIP ViT-B/16",
+  "table_layout": "transfer_pairs_by_category_shift",
+  "primary_metric": {
+    "CDA": "accuracy",
+    "PDA": "accuracy",
+    "ODA": "H-score",
+    "OPDA": "H-score"
+  },
+  "aggregation": {
+    "metric_source": "final",
+    "reduction": "none",
+    "num_runs": 1
+  },
+  "notes": [],
+  "results": [
+    {
+      "category_shift": "OPDA",
+      "task": "S->R",
+      "source_domain": "Synthetic",
+      "target_domain": "Real",
+      "shared_classes": 6,
+      "source_private_classes": 3,
+      "target_private_classes": 3,
+      "run_count": 1,
+      "primary_metric": "H-score",
+      "primary_value": 89.8283,
+      "metrics": {
+        "accuracy": 90.9656,
+        "closed_set_oa": 90.9656,
+        "closed_set_recall": 93.7773,
+        "h_score": 89.8283,
+        "h3_score": 89.5802,
+        "ucr": 87.5059,
+        "open_set_oa": 86.2534,
+        "os_star": 88.7042,
+        "unknown": 90.9822,
+        "os": 89.0296,
+        "open_set_nmi": 89.0842,
+        "auroc": 95.4956,
+        "aupr": 97.5056,
+        "aupr_neg": 90.6932,
+        "ms_s": 94.2767,
+        "ms_t": 60.3066,
+        "ms_s_with_ent": 94.2588,
+        "ms_t_with_ent": 87.3348,
+        "unims": 95.4956
+      },
+      "run": {
+        "seed": 2022,
+        "run_id": "runs_2026_0513_050048_visda_SR_6-3-3_TASC_exp-tasc20_final-0811_OPDA_full",
+        "exp_name": "exp-tasc20_final-0811_OPDA_full",
+        "final_iteration": 19999,
+        "metric_file": "related_works/tasc/codes/tasc-dabench/output/visda/runs_2026_0513_050048_visda_SR_6-3-3_TASC_exp-tasc20_final-0811_OPDA_full/metrics/metric_0_19999.json",
+        "output_dir": "related_works/tasc/codes/tasc-dabench/output/visda/runs_2026_0513_050048_visda_SR_6-3-3_TASC_exp-tasc20_final-0811_OPDA_full"
+      }
+    }
+  ]
+}

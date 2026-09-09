@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Any, Literal
 
 from dabench.data import build_loader, load_view, make_paired_forever_loader
@@ -53,7 +54,9 @@ def load_uda(
     dataset: str,
     source_domain: str | int,
     target_domain: str | int,
-    format: Literal["hf", "torch"] = "hf",
+    format: Literal["hf", "torch", "feature"] = "hf",
+    feature_model: str | None = None,
+    feature_cache_path: str | Path | None = None,
     source_train_batch_size: int,
     target_train_batch_size: int | None = None,
     val_batch_size: int | None = None,
@@ -73,6 +76,8 @@ def load_uda(
         split=views["source_train"]["split"],
         format=format,
         decode=decode,
+        feature_model=feature_model,
+        feature_cache_path=feature_cache_path,
     )
     target_train = load_view(
         dataset,
@@ -80,6 +85,8 @@ def load_uda(
         split=views["target_train"]["split"],
         format=format,
         decode=decode,
+        feature_model=feature_model,
+        feature_cache_path=feature_cache_path,
     )
     val_dataset = load_view(
         dataset,
@@ -87,6 +94,8 @@ def load_uda(
         split=views["val"]["split"],
         format=format,
         decode=decode,
+        feature_model=feature_model,
+        feature_cache_path=feature_cache_path,
     )
     test_dataset = load_view(
         dataset,
@@ -94,6 +103,8 @@ def load_uda(
         split=views["test"]["split"],
         format=format,
         decode=decode,
+        feature_model=feature_model,
+        feature_cache_path=feature_cache_path,
     )
 
     train_loader = make_paired_forever_loader(
